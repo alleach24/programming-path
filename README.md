@@ -6,7 +6,7 @@ Problem: There are so many available resources to learn/improve in programming t
 
 Solution: This app will allow users to organize available resources to help them accomplish their individual goals.
 
-Features:
+####Features:
 - A time-based to-do system that allows users to keep track of what resources they want to use on a daily/weekly/monthly/etc basis
   - For example, a user can add "Complete two easy-level and one medium-level Leetcode problems" to their "Daily To Do" sheet
   - Potential additional feature: a stats tracker to analyze how often the user meets their daily/weekly/monthly goals
@@ -18,12 +18,12 @@ Features:
   - For example, if you have one mentor who focuses on Front End and one who focuses on Back End, this page will help you remember who focuses on what so that if you have a specific question, you can ask the right person
 - An "Available/Popular Resources" page that lists popular resources for people to browse if they want to add things to their To-Do lists or Future Plans section
 
-Planned APIs to use:
+####Planned APIs to use:
 - [Todoist](https://developer.todoist.com/)
 - [Pixela](https://pixe.la/)
 - [Abstract Screenshot](https://www.abstractapi.com/api/website-screenshot-api)
 
-Planned CRUD use:
+####Planned CRUD use:
 - create: add a new to-do entry (either long term "Future Plans" or "daily/weekly/monthly to-do"), add new mentor/partner information, add project ideas
 - read: view existing entries
 - update: change status of to-dos, edit mentor/partner information, re-order project ideas, et al
