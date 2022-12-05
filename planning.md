@@ -20,6 +20,7 @@
 - reminder notifications
 
 ### APIs
+- [Todoist](https://developer.todoist.com/)
 - 
 
 ### CRUD stuff
