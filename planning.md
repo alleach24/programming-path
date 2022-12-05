@@ -11,6 +11,6 @@
 
 ### Raw ideas
 - Pages
--- "Daily to-do"
--- "Future plans"
--- "Project ideas"
+  - "Daily to-do"
+  - "Future plans"
+  - "Project ideas"
