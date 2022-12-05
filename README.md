@@ -14,6 +14,7 @@ Base Features:
   - For example, a user can add "The Odin Project" to their timeline after "Code Platoon" and before "Georgia Tech online masters in CS program"
   - this would also allow users to indicate when they've completed a Current Plan and then the next Future Plan would become the Current Plan
 - A "Project Ideas" page that allows users to keep track of project ideas they've had so that even if they can't work on that project now they'll be able to rememeber it in the future
+
 Additional/Stretch Features:
 - Weekly/Monthly to-do lists
   - Potential additional feature: a stats tracker to analyze how often the user meets their daily/weekly/monthly goals
