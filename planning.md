@@ -24,6 +24,10 @@
 ### APIs
 - [Todoist](https://developer.todoist.com/)
 - [Pixela](https://pixe.la/)
-- 
+- [Abstract Screenshot](https://www.abstractapi.com/api/website-screenshot-api)
 
 ### CRUD stuff
+- create: add a new to-do entry (either long term "Future Plans" or "daily/weekly/monthly to-do"), add new mentor/partner information, add project ideas
+- read: view existing entries
+- update: change status of to-dos, edit mentor/partner information, re-order project ideas, et al
+- delete: allow user to delete previous to-dos, project ideas, et al
