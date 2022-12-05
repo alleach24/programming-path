@@ -14,3 +14,7 @@
   - "Daily to-do"
   - "Future plans"
   - "Project ideas"
+
+### APIs
+
+### CRUD stuff
