@@ -8,3 +8,9 @@
 - Implement proper back-end Models and Database design
 - Implement proper styling, presentation, and site navigation
 - Implement a feature-rich application demonstrating proper web design principles
+
+### Raw ideas
+- Pages
+-- "Daily to-do"
+-- "Future plans"
+-- "Project ideas"
