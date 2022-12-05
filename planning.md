@@ -10,11 +10,16 @@
 - Implement a feature-rich application demonstrating proper web design principles
 
 ### Raw ideas
-- Pages
+- Features
   - "Daily to-do"
   - "Future plans"
   - "Project ideas"
+  - "Mentor/partner page"
+  - "Available/Popular resources by topic/type(coding problems,documentation,tutorials)/stage(beginner,intermediate,etc)"
+- user logins 
+- reminder notifications
 
 ### APIs
+- 
 
 ### CRUD stuff
