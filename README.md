@@ -1,2 +1,2 @@
-# Path to Programmer
+# Path of Programming
 
