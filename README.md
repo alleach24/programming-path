@@ -8,7 +8,7 @@ Solution: This app will allow users to organize available resources to help them
 
 #### Features:
 Base Features:
-- A time-based to-do system that allows users to keep track of what resources they want to use on a daily basis
+- A time-based to-do system that allows users to keep track of what resources they want to use on a daily/weekly/monthly basis
   - For example, a user can add "Complete two easy-level and one medium-level Leetcode problems" to their "Daily To Do" sheet
 - A "Future Plans/Timeline" section that allows users to add resources they plan to use in the future in a particular order
   - For example, a user can add "The Odin Project" to their timeline after "Code Platoon" and before "Georgia Tech online masters in CS program"
@@ -16,8 +16,7 @@ Base Features:
 - A "Project Ideas" page that allows users to keep track of project ideas they've had so that even if they can't work on that project now they'll be able to rememeber it in the future
 
 Additional/Stretch Features:
-- Weekly/Monthly to-do lists
-  - Potential additional feature: a stats tracker to analyze how often the user meets their daily/weekly/monthly goals
+- A stats tracker to analyze how often the user meets their daily/weekly/monthly goals
 - A "Mentor/Partner" page that allows users to keep track of mentors and partners they have. By adding their mentors' and partners' specialties or areas of focus, it'll make it easier to find the right person to ask a question
   - For example, if you have one mentor who focuses on Front End and one who focuses on Back End, this page will help you remember who focuses on what so that if you have a specific question, you can ask the right person
 - An "Available/Popular Resources" page that lists popular resources for people to browse if they want to add things to their To-Do lists or Future Plans section
