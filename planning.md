@@ -21,7 +21,7 @@
 - user logins 
 - reminder notifications
 
-### APIs
+### Potential APIs
 - [Todoist](https://developer.todoist.com/)
 - [Pixela](https://pixe.la/)
 - [Abstract Screenshot](https://www.abstractapi.com/api/website-screenshot-api)
