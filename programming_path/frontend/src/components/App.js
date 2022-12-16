@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import WelcomePage from "./WelcomePage";
 
 export default class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Testing testing</h1>
+        <WelcomePage />
       </div>
     );
   }

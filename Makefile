@@ -22,3 +22,6 @@ npm install @babel/plugin-proposal-class-properties
 ___________________________
 completed:
 video 1
+video 2
+video 4
+
