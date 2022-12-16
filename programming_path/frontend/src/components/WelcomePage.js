@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import HomePage from "./HomePage";
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,6 +6,8 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import Quotable from "./Quotable";
+
 
 export default class WelcomePage extends Component {
   constructor(props) {
@@ -15,12 +16,17 @@ export default class WelcomePage extends Component {
 
   render() {
     return (
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<p>This is the welcome page</p>}></Route>
-          <Route path="/home" element={<HomePage />} />
-        </Routes>
-      </Router>
+      <div id="welcome">
+        <h1>This is the welcome page</h1>
+
+        <div id="quote">
+          <Quotable />
+        </div>
+
+        <div id="challenge">
+          <Link to="/login" class="links">I accept this challenge.</Link>
+        </div>
+      </div>
     );
   }
 }
