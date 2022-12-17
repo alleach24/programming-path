@@ -5,12 +5,14 @@ export default function Quotable() {
 
   async function updateQuote() {
     try {
-      const response = await fetch("https://api.quotable.io/random");
+      const response = await fetch("https://api.quotable.io/random?tags=education|science|technology|success");
       const { statusCode, statusMessage, ...data } = await response.json();
       if (!response.ok) throw new Error(`${statusCode} ${statusMessage}`);
       setData(data);
+      console.log(data)
     } catch (error) {
       console.error(error);
+      console.log(data)
       setData({ content: "Opps... Something went wrong" });
     }
   }
@@ -25,11 +27,11 @@ export default function Quotable() {
 
   return (
     <div className="App">
-          <blockquote className="blockquote mb-0">
+          <blockquote >
             <p>{data.content}</p>
             {data.author && (
               <footer className="blockquote-footer">
-                <cite title="Source Title">{data.author}</cite>
+                <cite title="Source Title">- {data.author}</cite>
               </footer>
             )}
           </blockquote>
