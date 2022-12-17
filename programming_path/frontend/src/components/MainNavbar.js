@@ -8,7 +8,7 @@ export default function MainNavbar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Path of Programming</Navbar.Brand>
+        <Navbar.Brand href="/home">Path of Programming</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -24,7 +24,7 @@ export default function MainNavbar() {
                 View All
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#link">My Projects</Nav.Link>
+            <Nav.Link href="/projects">My Projects</Nav.Link>
             <Nav.Link href="#link">My Network</Nav.Link>
           </Nav>
         </Navbar.Collapse>

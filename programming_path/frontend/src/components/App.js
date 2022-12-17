@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import WelcomePage from "./WelcomePage";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import ProjectsPage from "./ProjectsPage"
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,6 +25,7 @@ export default class App extends Component {
           <Route exact path="/" element={<WelcomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </Router>
     );
