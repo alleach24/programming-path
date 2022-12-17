@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import MainNavbar from "./MainNavbar";
+import Quotable from "./Quotable";
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -7,7 +9,11 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <p>This is the homepage</p>
+            <div>
+                <MainNavbar />
+                <p>This is the homepage</p>
+                <Quotable />
+            </div>
         )
     }
 }
