@@ -4,6 +4,7 @@ import WelcomePage from "./WelcomePage";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import ProjectsPage from "./ProjectsPage"
+import Project from "./Project"
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,6 +27,7 @@ export default class App extends Component {
           <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/project/:projectID" element={<Project />} />
         </Routes>
       </Router>
     );

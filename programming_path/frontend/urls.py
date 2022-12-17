@@ -9,4 +9,5 @@ urlpatterns = [
 #     path('logout/', views.log_out),
 #     path('whoami/', views.who_am_i),
     path('projects/', views.index),
+    path('project/<int:projectID>', views.index),
 ]
