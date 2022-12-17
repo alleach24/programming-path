@@ -27,10 +27,14 @@ class GetProject(APIView):
         return Response({'Bad Reqeust: Project parameter not included'}, status=status.HTTP_404_NOT_FOUND)
 
 
-# class GetProjectList(APIView):
-#     serializer_class = ProjectSerializer
+class GetProjectList(APIView):
+    serializer_class = ProjectSerializer
 
-#     def get(self, request, formate=None):
-#         project_list = Project.objects()
-
-#         return Response()
+    def get(self, request, formate=None):
+        project_list = Project.objects.all()
+        data_list = []
+        print(len(project_list))
+        for i in range(0,len(project_list)):
+            data_list.append(ProjectSerializer(project_list[i]).data)
+        print(data_list)
+        return Response(data_list, status=status.HTTP_200_OK)
