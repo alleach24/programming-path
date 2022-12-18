@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from .serializers import ProjectSerializer
 from .models import Project
 from rest_framework.response import Response
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
@@ -57,3 +58,10 @@ class AddProject(APIView):
             return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
             
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+def deleteIdea(request, id):
+    print('test')
+    idea = Project.objects.get(id=id)
+    print(idea)
+    idea.delete()
+    return HttpResponse()

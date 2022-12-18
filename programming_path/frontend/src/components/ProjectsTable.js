@@ -15,6 +15,19 @@ export default function ProjectsTable() {
     setProjectList(await response.json());
   }
 
+  const DeleteIdea = (id) => {
+    let path = "/api/delete-idea/" + id
+    fetch(path, [])
+    getData()
+  }
+
+  const EditIdea = (id) => {
+    console.log('pressed edit')
+    let path = "/project/" + id;
+    console.log(path)
+    location.assign(path);
+  }
+
   return (
     <div>
       <Table striped bordered hover>
@@ -40,8 +53,8 @@ export default function ProjectsTable() {
                   <td>{data.technologies}</td>
                   <td>{data.collaborators}</td>
                   <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={()=>EditIdea(data.id)}>Edit</button>
+                    <button onClick={()=>DeleteIdea(data.id)}>Delete</button>
                   </td>
                 </tr>
               )

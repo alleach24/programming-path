@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";  
-import MainNavbar from "./MainNavbar"
+import { useParams, useNavigate } from "react-router-dom";  
 
 export default function Project() {
 
@@ -21,7 +20,21 @@ export default function Project() {
             setCollaborators(data.collaborators);
             setStatus(data.status);
             console.log(data)
-        });
+    });
+
+    const navigate = useNavigate();
+    const goToProjectTable = () => {
+        navigate('/projects');
+    }
+
+    const DeleteIdea = (id) => {
+        let path = "/api/delete-idea/" + id
+        fetch(path, [])
+        goToProjectTable()
+    }
+        
+    const EditIdea = (id) => {
+    }
 
     return (
         <div>
@@ -32,8 +45,8 @@ export default function Project() {
             <p>technologies: {technologies}</p>
             <p>collaborators: {collaborators}</p>
             <p>status: {status}</p>
-            <button>Edit Project</button>
-            <button>Delete Project</button>
+            <button onClick={()=>EditIdea(projectID)}>Edit</button>
+            <button onClick={()=>DeleteIdea(projectID)}>Delete</button>
         </div>
     )
 }
