@@ -10,13 +10,6 @@ export default function AddProjectIdea() {
     const [collaborators, setCollaborators] = useState("");
     const [status, setStatus] = useState("");
 
-    function onSubmit(e) {
-        let newtitle = document.getElementById("formTitle").value;
-        console.log(newtitle);
-        setTitle(newtitle);
-        console.log(title);
-    }
-
     const SaveProject = async () => {
         const requestOptions = {
             method: 'POST',
@@ -36,12 +29,6 @@ export default function AddProjectIdea() {
     const routeChange = (id) => {
         let path = '/project/' + id
         navigate(path)
-    }
-
-    const CancelProject = () => {
-        // Change all states back to default
-        // redirect to projects page
-        pass
     }
 
     return (
@@ -66,10 +53,11 @@ export default function AddProjectIdea() {
                             <label for="formCollaborators">Collaborators:  </label>
                             <input type="text" id="formCollaborators" name="formCollaborators" onChange={(e) => setCollaborators(e.target.value)} />
                             <br />
-                            {/* <input type="submit" value="Save Project" /> */}
                         </form>
                         <button onClick={SaveProject}>Save Project</button>
-                        <button onClick={CancelProject}>Cancel</button>
+                        <a href="/projects">
+                            <input type="button" value="Cancel" />
+                        </a>
                     </div>
                 </div>
             </div>
