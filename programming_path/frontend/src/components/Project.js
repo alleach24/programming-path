@@ -25,7 +25,6 @@ export default function Project() {
 
     return (
         <div>
-            <MainNavbar />
             <p>This a project page</p>
             <h3>Project ID: {projectID}</h3>
             <p>title: {title}</p>
@@ -33,6 +32,8 @@ export default function Project() {
             <p>technologies: {technologies}</p>
             <p>collaborators: {collaborators}</p>
             <p>status: {status}</p>
+            <button>Edit Project</button>
+            <button>Delete Project</button>
         </div>
     )
 }

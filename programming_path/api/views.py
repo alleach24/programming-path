@@ -38,3 +38,22 @@ class GetProjectList(APIView):
             data_list.append(ProjectSerializer(project_list[i]).data)
         # print(data_list)
         return Response(data_list, status=status.HTTP_200_OK)
+
+
+class AddProject(APIView):
+    serializer_class = ProjectSerializer
+
+    def post(self, request, format=None):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            title = serializer.data.get('title')
+            description = serializer.data.get('description')
+            technologies = serializer.data.get('technologies')
+            collaborators = serializer.data.get('collaborators')
+            project_status = serializer.data.get('status')
+
+            project = Project(title=title, description=description, technologies=technologies, collaborators=collaborators, status=project_status)
+            project.save()
+            return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
+            
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)

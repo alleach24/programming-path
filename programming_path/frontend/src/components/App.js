@@ -13,6 +13,7 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import MainNavbar from "./MainNavbar"
 
 
 export default class App extends Component {
@@ -22,7 +23,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
+      <div>
+        <MainNavbar />
+        <Router>
         <Routes>
           <Route exact path="/" element={<WelcomePage />} />
           <Route path="/home" element={<HomePage />} />
@@ -32,6 +35,8 @@ export default class App extends Component {
           <Route path="/project/:projectID" element={<Project />} />
         </Routes>
       </Router>
+      </div>
+      
     );
   }
 }
