@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";  
+import { useParams, useNavigate } from "react-router-dom";  
 
 
 export default function ProjectsTable() {
@@ -21,11 +21,12 @@ export default function ProjectsTable() {
     getData()
   }
 
+  let navigate = useNavigate()
   const EditIdea = (id) => {
     console.log('pressed edit')
-    let path = "/project/" + id;
+    let path = "/project/edit/" + id;
     console.log(path)
-    location.assign(path);
+    navigate(path)
   }
 
   return (

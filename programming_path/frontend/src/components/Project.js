@@ -34,6 +34,8 @@ export default function Project() {
     }
         
     const EditIdea = (id) => {
+        let path = "/project/edit/" + projectID
+        navigate(path)
     }
 
     return (

@@ -57,19 +57,19 @@ export default function ProjectEdit() {
                     <div className="form-control">
                         <form>
                             <label for="formTitle">Title:  </label>
-                            <input type="text" id="formTitle" name="formTitle" />
+                            <input type="text" id="formTitle" name="formTitle" defaultValue={title}/>
                             <br />
                             <label for="formDescription">Description:  </label>
-                            <textarea type="text" id="formDescription" name="formDescription" />
+                            <textarea type="text" id="formDescription" name="formDescription" defaultValue={description}/>
                             <br />
                             <label for="formStatus">Status:  </label>
-                            <input type="text" id="formStatus" name="formStatus" value={status}/>
+                            <input type="text" id="formStatus" name="formStatus" defaultValue={status}/>
                             <br />
                             <label for="formTechnologies">Technologies:  </label>
-                            <input type="text" id="formTechnologies" name="formTechnologies" />
+                            <input type="text" id="formTechnologies" name="formTechnologies" defaultValue={technologies}/>
                             <br />
                             <label for="formCollaborators">Collaborators:  </label>
-                            <input type="text" id="formCollaborators" name="formCollaborators" />
+                            <input type="text" id="formCollaborators" name="formCollaborators" defaultValue={collaborators}/>
                             <br />
                         </form>
                         <button onClick={SaveProject}>Save Project</button>

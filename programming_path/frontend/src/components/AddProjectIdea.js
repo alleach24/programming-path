@@ -15,6 +15,7 @@ export default function AddProjectIdea() {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
+                id: null,
                 title: title,
                 description: description,
                 technologies: technologies,
@@ -22,7 +23,7 @@ export default function AddProjectIdea() {
                 status: status,
             }),
         };
-        fetch("/api/add-project/", requestOptions).then((response) => response.json()).then((data) => routeChange(data.id))
+        fetch("/api/save-project/", requestOptions).then((response) => response.json()).then((data) => routeChange(data.id))
     }
 
     let navigate = useNavigate();

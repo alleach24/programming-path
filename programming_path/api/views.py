@@ -34,36 +34,10 @@ class GetProjectList(APIView):
     def get(self, request, formate=None):
         project_list = Project.objects.all()
         data_list = []
-        # print(len(project_list))
         for i in range(0,len(project_list)):
             data_list.append(ProjectSerializer(project_list[i]).data)
-        # print(data_list)
         return Response(data_list, status=status.HTTP_200_OK)
 
-
-class AddProject(APIView):
-    serializer_class = ProjectSerializer
-
-    def post(self, request, format=None):
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
-            title = serializer.data.get('title')
-            description = serializer.data.get('description')
-            technologies = serializer.data.get('technologies')
-            collaborators = serializer.data.get('collaborators')
-            project_status = serializer.data.get('status')
-
-            project = Project(title=title, description=description, technologies=technologies, collaborators=collaborators, status=project_status)
-            project.save()
-            return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
-            
-        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
-        
-
-
-def updateProject(request, id):
-    project = Project.objects.get(id=id)
-    print(project)
 
 class SaveProject(APIView):
     serializer_class = ProjectSerializer
@@ -72,17 +46,15 @@ class SaveProject(APIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             id = request.data['id']
+            title = serializer.data.get('title')
+            description = serializer.data.get('description')
+            technologies = serializer.data.get('technologies')
+            collaborators = serializer.data.get('collaborators')
+            project_status = serializer.data.get('status')
+
             if id != None:
                 project = Project.objects.filter(id=id)
-
                 if len(project) > 0:
-                           
-                    title = serializer.data.get('title')
-                    description = serializer.data.get('description')
-                    technologies = serializer.data.get('technologies')
-                    collaborators = serializer.data.get('collaborators')
-                    project_status = serializer.data.get('status')
-
                     project[0].title = title
                     project[0].description = description
                     project[0].technologies = technologies
@@ -90,6 +62,11 @@ class SaveProject(APIView):
                     project[0].status = project_status
                     project[0].save()
                     return Response({'Good Request': 'Project updated'}, status=status.HTTP_200_OK)
+            
+            else:
+                project = Project(title=title, description=description, technologies=technologies, collaborators=collaborators, status=project_status)
+                project.save()
+                return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
             
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
