@@ -11,4 +11,5 @@ urlpatterns = [
     path('projects/', views.index),
     path('project/<int:projectID>', views.index),
     path('add-project-idea/', views.index),
+    path('project/edit/<int:projectID>', views.index),
 ]

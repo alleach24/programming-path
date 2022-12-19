@@ -58,6 +58,42 @@ class AddProject(APIView):
             return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
             
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+        
+
+
+def updateProject(request, id):
+    project = Project.objects.get(id=id)
+    print(project)
+
+class SaveProject(APIView):
+    serializer_class = ProjectSerializer
+
+    def post(self, request, format=None):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            id = request.data['id']
+            if id != None:
+                project = Project.objects.filter(id=id)
+
+                if len(project) > 0:
+                           
+                    title = serializer.data.get('title')
+                    description = serializer.data.get('description')
+                    technologies = serializer.data.get('technologies')
+                    collaborators = serializer.data.get('collaborators')
+                    project_status = serializer.data.get('status')
+
+                    project[0].title = title
+                    project[0].description = description
+                    project[0].technologies = technologies
+                    project[0].collaborators = collaborators
+                    project[0].status = project_status
+                    project[0].save()
+                    return Response({'Good Request': 'Project updated'}, status=status.HTTP_200_OK)
+            
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 def deleteIdea(request, id):
     print('test')
