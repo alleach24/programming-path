@@ -13,7 +13,8 @@ urlpatterns = [
 
 
     path('tasks/', views.index),
-    path('add-task/', views.index),
     path('task/<int:taskID>', views.index),
+    path('task/edit/<int:taskID>', views.index),
+    path('task/edit/new', views.index),
     
 ]

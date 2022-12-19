@@ -118,7 +118,10 @@ class SaveTask(APIView):
 
     def post(self, request, format=None):
         serializer = self.serializer_class(data=request.data)
+        
         if serializer.is_valid():
+            print(serializer.errors)
+            print("serializer is valid")
             id = request.data['id']
             title = serializer.data.get('title')
             frequency = serializer.data.get('frequency')
@@ -126,6 +129,7 @@ class SaveTask(APIView):
             completed = serializer.data.get('completed')
 
             if id != None:
+                print(id)
                 task = Task.objects.filter(id=id)
                 if len(task) > 0:
                     task[0].title = title
@@ -133,13 +137,16 @@ class SaveTask(APIView):
                     task[0].description = description
                     task[0].completed = completed
                     task[0].save()
-                    return Response({'Good Request': 'Project updated'}, status=status.HTTP_200_OK)
+                    return Response(TaskSerializer(task[0]).data, status=status.HTTP_200_OK)
             
             else:
+                print("no id provided")
                 task = Task(title=title, frequency=frequency, description=description, completed=completed)
                 task.save()
                 return Response(TaskSerializer(task).data, status=status.HTTP_201_CREATED)
-            
+        else:
+            print(serializer.errors)
+            print("serializer not valid")   
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
 

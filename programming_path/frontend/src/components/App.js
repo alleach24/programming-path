@@ -7,7 +7,7 @@ import ProjectsPage from "./ProjectsPage"
 import Project from "./Project"
 import ProjectEdit from "./ProjectEdit"
 import TasksPage from "./TasksPage"
-import TaskAdd from "./TaskAdd"
+import TaskEdit from "./TaskEdit"
 import Task from "./Task"
 import {
   BrowserRouter as Router,
@@ -28,6 +28,7 @@ export default class App extends Component {
       <div>
         <Router>
         <Routes>
+
           <Route exact path="/" element={<WelcomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -37,10 +38,9 @@ export default class App extends Component {
           <Route path="/project/edit/:projectID" element={<ProjectEdit />} />
 
           <Route path="/tasks" element = {<TasksPage />} />
-          <Route path="/add-task" element={<TaskAdd />} />
           <Route path="/task/:taskID" element={<Task />} />
-
-          {/* <Route path="/task/edit/:taskID" element={<TaskEdit />} /> */}
+          <Route path="/task/edit/:taskID" element={<TaskEdit />} />
+          
         </Routes>
       </Router>
       </div>

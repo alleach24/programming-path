@@ -14,7 +14,7 @@ export default class TasksPage extends Component {
                 <MainNavbar />
                 <h1>My Tasks</h1>
                 <div>
-                    <form action="/add-task">
+                    <form action="/task/edit/new">
                     <input type="submit" value="Add new task" />
                     </form>
                 </div>

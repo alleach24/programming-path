@@ -19,18 +19,18 @@ export default function TasksTable(props) {
     setTaskList(data);
   };
 
-  const DeleteIdea = (id) => {
+  const DeleteTask = (id) => {
     // let path = "/api/delete-idea/" + id
     // fetch(path, [])
     // getData()
   }
 
   let navigate = useNavigate()
-  const EditIdea = (id) => {
-//     console.log('pressed edit')
-//     let path = "/project/edit/" + id;
-//     console.log(path)
-//     navigate(path)
+  const EditTask = (id) => {
+    console.log('pressed edit')
+    let path = "/task/edit/" + id;
+    console.log(path)
+    navigate(path)
   }
 
   const completedStatus = (completed) => {
@@ -61,8 +61,8 @@ export default function TasksTable(props) {
                   <td>{data.description}</td>
                   <td>{completedStatus(data.completed)}</td>
                   <td>
-                    <button onClick={()=>EditIdea(data.id)}>Edit</button>
-                    <button onClick={()=>DeleteIdea(data.id)}>Delete</button>
+                    <button onClick={()=>EditTask(data.id)}>Edit</button>
+                    <button onClick={()=>DeleteTask(data.id)}>Delete</button>
                   </td>
                 </tr>
               )
