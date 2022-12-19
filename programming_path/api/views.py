@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 from rest_framework.views import APIView
-from .serializers import ProjectSerializer
-from .models import Project
+from .serializers import ProjectSerializer, TaskSerializer
+from .models import Project, Task
 from rest_framework.response import Response
 from django.http import HttpResponse, HttpResponseRedirect
+
 
 # Create your views here.
 
@@ -78,3 +79,9 @@ def deleteIdea(request, id):
     print(idea)
     idea.delete()
     return HttpResponse()
+
+
+
+class TaskView(generics.ListAPIView):
+    serializer_class = TaskSerializer
+    queryset = Task.objects.all()
