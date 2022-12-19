@@ -14,15 +14,6 @@ from django.contrib.auth.models import (AbstractUser)
 #     REQUIRED_FIELDS = []
 #     # pass
 
-class Task(models.Model):
-    title = models.CharField(max_length=100)
-    frequency = models.CharField(max_length=50)
-    completed = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-
-
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
@@ -30,6 +21,28 @@ class Project(models.Model):
     collaborators = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Task(models.Model):
+    ONCE = "O"
+    DAILY = "D"
+    WEEKLY = "W"
+    MONTHLY = "M"
+    YEARLY = "Y"
+    FREQUENCY_CHOICES = [
+        (ONCE, 'Once'),
+        (DAILY, 'Daily'),
+        (WEEKLY, 'Weekly'),
+        (MONTHLY, 'Monthly'),
+        (YEARLY, 'Yearly'),
+    ]
+    title = models.CharField(max_length=120)
+    frequency = models.CharField(max_length = 1, choices=FREQUENCY_CHOICES, default=ONCE)
+    description = models.TextField(default="description") # change to link to resource later
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
