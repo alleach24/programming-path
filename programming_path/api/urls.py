@@ -11,4 +11,8 @@ urlpatterns = [
     path('delete-idea/<int:id>', views.deleteIdea, name='delete'),
 
     path('tasks/', views.TaskView.as_view()),
+    path('get-task-list/', views.GetTaskList.as_view()),
+    path('save-task/', views.SaveTask.as_view()),
+    path('get-task/', views.GetTask.as_view()),
+    
 ]

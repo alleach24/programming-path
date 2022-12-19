@@ -20,7 +20,7 @@ export default function MainNavbar() {
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Monthly</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item href="/tasks">
                 View All
               </NavDropdown.Item>
             </NavDropdown>

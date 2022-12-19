@@ -12,4 +12,10 @@ urlpatterns = [
     path('project/<int:projectID>', views.index),
     path('add-project-idea/', views.index),
     path('project/edit/<int:projectID>', views.index),
+
+
+    path('tasks/', views.index),
+    path('add-task/', views.index),
+    path('task/<int:taskID>', views.index),
+    
 ]

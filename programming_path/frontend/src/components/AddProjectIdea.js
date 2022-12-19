@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from 'axios';
-import { useNavigate } from "react-router-dom"
-import MainNavbar from "./MainNavbar"
+import { useNavigate } from "react-router-dom";
+import MainNavbar from "./MainNavbar";
+import Cookies from 'js-cookie';
 
 export default function AddProjectIdea() {
 
@@ -12,9 +12,14 @@ export default function AddProjectIdea() {
     const [status, setStatus] = useState("");
 
     const SaveProject = async () => {
+        const csrftoken = Cookies.get('csrftoken');
         const requestOptions = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            },
+            mode: 'same-origin',
             body: JSON.stringify({
                 id: null,
                 title: title,
@@ -33,7 +38,7 @@ export default function AddProjectIdea() {
         navigate(path)
     }
 
-    // figure out how to not change state every time a letter is typed
+    // figure out how to not change state every time a letter is typd
     return (
         <div>
             <MainNavbar /> 

@@ -7,6 +7,9 @@ import ProjectsPage from "./ProjectsPage"
 import Project from "./Project"
 import AddProjectIdea from "./AddProjectIdea"
 import ProjectEdit from "./ProjectEdit"
+import TasksPage from "./TasksPage"
+import TaskAdd from "./TaskAdd"
+import Task from "./Task"
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,6 +36,12 @@ export default class App extends Component {
           <Route path="/add-project-idea" element={<AddProjectIdea />} />
           <Route path="/project/:projectID" element={<Project />} />
           <Route path="/project/edit/:projectID" element={<ProjectEdit />} />
+
+          <Route path="/tasks" element = {<TasksPage />} />
+          <Route path="/add-task" element={<TaskAdd />} />
+          <Route path="/task/:taskID" element={<Task />} />
+
+          {/* <Route path="/task/edit/:taskID" element={<TaskEdit />} /> */}
         </Routes>
       </Router>
       </div>

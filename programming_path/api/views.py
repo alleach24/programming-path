@@ -5,6 +5,7 @@ from .serializers import ProjectSerializer, TaskSerializer
 from .models import Project, Task
 from rest_framework.response import Response
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -40,6 +41,7 @@ class GetProjectList(APIView):
         return Response(data_list, status=status.HTTP_200_OK)
 
 
+# @csrf_exempt
 class SaveProject(APIView):
     serializer_class = ProjectSerializer
 
@@ -85,3 +87,65 @@ def deleteIdea(request, id):
 class TaskView(generics.ListAPIView):
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
+
+
+class GetTaskList(APIView):
+    serializer_class = TaskSerializer
+    lookup_url_kwarg = 'frequency'
+
+    def get(self, request, formate=None):
+        frequency = request.GET.get(self.lookup_url_kwarg)
+        if frequency != None:
+            task_list = Task.objects.filter(frequency=frequency)
+            if len(task_list) > 0:
+                data_list = []
+                for i in range(0,len(task_list)):
+                    data_list.append(TaskSerializer(task_list[i]).data)
+                return Response(data_list, status=status.HTTP_200_OK)
+            return Response({'Good Reqeust: No tasks found'}, status=status.HTTP_200_OK)
+        return Response({'Bad Reqeust: Task frequency parameter not included'}, status=status.HTTP_404_NOT_FOUND)
+
+
+class SaveTask(APIView):
+    serializer_class = TaskSerializer
+
+    def post(self, request, format=None):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            id = request.data['id']
+            title = serializer.data.get('title')
+            frequency = serializer.data.get('frequency')
+            description = serializer.data.get('description')
+            completed = serializer.data.get('completed')
+
+            if id != None:
+                task = Task.objects.filter(id=id)
+                if len(task) > 0:
+                    task[0].title = title
+                    task[0].frequency = frequency
+                    task[0].description = description
+                    task[0].completed = completed
+                    task[0].save()
+                    return Response({'Good Request': 'Project updated'}, status=status.HTTP_200_OK)
+            
+            else:
+                task = Task(title=title, frequency=frequency, description=description, completed=completed)
+                task.save()
+                return Response(TaskSerializer(task).data, status=status.HTTP_201_CREATED)
+            
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class GetTask(APIView):
+    serializer_class = TaskSerializer
+    lookup_url_kwarg = 'id'
+
+    def get(self, request, format=None):
+        id = request.GET.get(self.lookup_url_kwarg)
+        if id != None:
+            task = Task.objects.filter(id=id)
+            if len(task) > 0:
+                data = TaskSerializer(task[0]).data
+                return Response(data, status=status.HTTP_200_OK)
+            return Response({'Bad Request': 'Invalid Task ID'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'Bad Reqeust: ID parameter not included'}, status=status.HTTP_404_NOT_FOUND)
