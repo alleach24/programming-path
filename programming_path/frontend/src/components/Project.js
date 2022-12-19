@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";  
+import MainNavbar from "./MainNavbar";
 
 export default function Project() {
 
@@ -40,6 +41,7 @@ export default function Project() {
 
     return (
         <div>
+            <MainNavbar />
             <p>This a project page</p>
             <h3>Project ID: {projectID}</h3>
             <p>title: {title}</p>

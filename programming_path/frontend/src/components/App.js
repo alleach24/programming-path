@@ -14,7 +14,6 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import MainNavbar from "./MainNavbar"
 
 
 export default class App extends Component {
@@ -25,7 +24,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <MainNavbar />
         <Router>
         <Routes>
           <Route exact path="/" element={<WelcomePage />} />

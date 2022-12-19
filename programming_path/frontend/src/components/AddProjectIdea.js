@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
+import MainNavbar from "./MainNavbar"
 
 export default function AddProjectIdea() {
 
@@ -35,6 +36,7 @@ export default function AddProjectIdea() {
     // figure out how to not change state every time a letter is typed
     return (
         <div>
+            <MainNavbar /> 
             <h3>Add your new project idea!</h3>
             <div className="container">
                 <div className="form-group">

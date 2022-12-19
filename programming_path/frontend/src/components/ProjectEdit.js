@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import { useParams, useNavigate } from "react-router-dom"
+import MainNavbar from "./MainNavbar";
 
 export default function ProjectEdit() {
 
@@ -51,6 +51,7 @@ export default function ProjectEdit() {
 
     return (
         <div>
+            <MainNavbar />
             <h3>Edit your project idea!</h3>
             <div className="container">
                 <div className="form-group">
