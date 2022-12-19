@@ -63,7 +63,7 @@ export default function ProjectsTable() {
         </tbody>
       </Table>
       <div>
-        <form action="/add-project-idea">
+        <form action="/project/edit/new">
           <input type="submit" value="Add new project idea" />
         </form>
       </div>

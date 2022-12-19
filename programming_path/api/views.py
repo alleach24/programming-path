@@ -41,13 +41,16 @@ class GetProjectList(APIView):
         return Response(data_list, status=status.HTTP_200_OK)
 
 
-# @csrf_exempt
 class SaveProject(APIView):
     serializer_class = ProjectSerializer
 
     def post(self, request, format=None):
         serializer = self.serializer_class(data=request.data)
+        
+
         if serializer.is_valid():
+            print(serializer.errors)
+            print("serializer is valid")
             id = request.data['id']
             title = serializer.data.get('title')
             description = serializer.data.get('description')
@@ -56,6 +59,7 @@ class SaveProject(APIView):
             project_status = serializer.data.get('status')
 
             if id != None:
+                print(id)
                 project = Project.objects.filter(id=id)
                 if len(project) > 0:
                     project[0].title = title
@@ -64,13 +68,16 @@ class SaveProject(APIView):
                     project[0].collaborators = collaborators
                     project[0].status = project_status
                     project[0].save()
-                    return Response({'Good Request': 'Project updated'}, status=status.HTTP_200_OK)
+                    return Response(ProjectSerializer(project[0]).data, status=status.HTTP_200_OK)
             
             else:
+                print("no id provided")
                 project = Project(title=title, description=description, technologies=technologies, collaborators=collaborators, status=project_status)
                 project.save()
                 return Response(ProjectSerializer(project).data, status=status.HTTP_201_CREATED)
-            
+        else:
+            print(serializer.errors)
+            print("serializer not valid")   
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
 import MainNavbar from "./MainNavbar";
+import Cookies from 'js-cookie';
 
 export default function ProjectEdit() {
 
@@ -11,8 +12,9 @@ export default function ProjectEdit() {
     const [status, setStatus] = useState("");
 
     const {projectID} = useParams();
+    console.log(projectID)
 
-    useEffect(() => { 
+    if (projectID !== "new") {
         fetch('/api/get-project' + '?id=' + projectID)
             .then((response) => response.json())
             .then((data) => {
@@ -23,15 +25,22 @@ export default function ProjectEdit() {
                 setStatus(data.status);
                 console.log(data)
         });
-    });
+    }    
+    
 
     const SaveProject = async () => {
 
+        const csrftoken = Cookies.get('csrftoken');
+        let idToSave = (projectID !== "new" ? projectID : null)
         const requestOptions = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            },
+            mode: 'same-origin',
             body: JSON.stringify({
-                id: projectID,
+                id: idToSave,
                 title: document.getElementById('formTitle').value,
                 description: document.getElementById('formDescription').value,
                 technologies: document.getElementById('formTechnologies').value,
@@ -40,7 +49,8 @@ export default function ProjectEdit() {
             }),
         };
         console.log(requestOptions);
-        fetch("/api/save-project/", requestOptions).then(() => routeChange(projectID));
+        // fetch("/api/save-project/", requestOptions).then(() => routeChange(projectID));
+        fetch("/api/save-project/", requestOptions).then((response) => response.json()).then((data) => routeChange(data.id))
     }
 
     let navigate = useNavigate();
@@ -52,7 +62,8 @@ export default function ProjectEdit() {
     return (
         <div>
             <MainNavbar />
-            <h3>Edit your project idea!</h3>
+            {projectID==="new" && <h3>Add your project idea!</h3>}
+            {projectID!=="new" && <h3>Edit your project idea!</h3>}
             <div className="container">
                 <div className="form-group">
                     <div className="form-control">
