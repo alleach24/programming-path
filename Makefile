@@ -18,6 +18,8 @@ npm install @babel/plugin-proposal-class-properties
 npm install react-bootstrap bootstrap
 
 
+npm install js-cookie
+
 
 (didn't do: materialUI)
 
