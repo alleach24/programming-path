@@ -6,7 +6,8 @@ import TasksTable from "./TasksTable";
 export default class TasksPage extends Component {
     constructor(props) {
         super(props);
-    }
+    }   
+    
 
     render() {
         return (

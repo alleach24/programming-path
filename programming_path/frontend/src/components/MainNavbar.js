@@ -14,15 +14,13 @@ export default function MainNavbar() {
           <Nav className="me-auto">
             <Nav.Link href="#link">My Path</Nav.Link>
             <NavDropdown title="My To-Dos" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.0">Once</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Daily</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Weekly
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Weekly</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Monthly</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Yearly</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/tasks">
-                View All
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/tasks">View All</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/projects">My Projects</Nav.Link>
             <Nav.Link href="#link">My Network</Nav.Link>

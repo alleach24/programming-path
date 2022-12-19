@@ -16,6 +16,8 @@ export default function TasksTable(props) {
     const response = await fetch(path);
     let data = await response.json();
     setTaskList(data);
+    console.log(data.length)
+    console.log(data)
   };
 
   const DeleteTask = (id) => {
@@ -52,7 +54,7 @@ export default function TasksTable(props) {
           </tr>
         </thead>
         <tbody>     
-          {taskList.map((data) => {
+          {taskList.length > 0 && taskList[0].id && taskList.map((data) => {
               return(
                 <tr>
                   <td>{data.id}</td>

@@ -37,15 +37,33 @@ export default function Task() {
         navigate(path)
     }
 
+    const completedStatus = (completed) => {
+        if (completed) {
+            return "Completed"
+        }
+        return "Ongoing"
+    }
+
+    const frequencyStatus = (frequency) => {
+        let dict = {
+            "O": "Once",
+            "D": "Daily",
+            "W": "Weekly",
+            "M": "Monthly",
+            "Y": "Yearly",
+        }
+        return dict[frequency]
+    }
+
     return (
         <div>
             <MainNavbar />
             <p>This a task page</p>
             <h3>Task ID: {taskID}</h3>
             <p>title: {title}</p>
-            <p>Frequency: {frequency}</p>
+            <p>Frequency: {frequencyStatus(frequency)}</p>
             <p>description: {description}</p>
-            <p>Completion status: {completed}</p>
+            <p>Completion status: {completedStatus(completed)}</p>
             <button onClick={()=>EditTask(taskID)}>Edit</button>
             <button onClick={()=>DeleteTask(taskID)}>Delete</button>
         </div>
