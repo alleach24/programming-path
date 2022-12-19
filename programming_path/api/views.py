@@ -83,13 +83,15 @@ class SaveProject(APIView):
 
 
 def deleteIdea(request, id):
-    print('test')
     idea = Project.objects.get(id=id)
-    print(idea)
     idea.delete()
     return HttpResponse()
 
 
+def deleteTask(request,id):
+    task = Task.objects.get(id=id)
+    task.delete()
+    return HttpResponse()
 
 class TaskView(generics.ListAPIView):
     serializer_class = TaskSerializer

@@ -15,14 +15,13 @@ export default function TasksTable(props) {
     let path = '/api/get-task-list' + "?frequency=" + props.frequency;
     const response = await fetch(path);
     let data = await response.json();
-    // console.log(data);
     setTaskList(data);
   };
 
   const DeleteTask = (id) => {
-    // let path = "/api/delete-idea/" + id
-    // fetch(path, [])
-    // getData()
+    let path = "/api/delete-task/" + id
+    fetch(path, [])
+    getData()
   }
 
   let navigate = useNavigate()
