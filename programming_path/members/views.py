@@ -30,3 +30,9 @@ def login_user(request):
         print("post request not received")
         return HttpResponse()
 
+
+def logout_user(request):
+    print('hit the logout method in /members/views.py')
+    logout(request)
+    return redirect('/')
+
