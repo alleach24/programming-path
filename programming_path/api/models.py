@@ -46,3 +46,13 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Plan(models.Model):
+    title = models.CharField(max_length=120)
+    description = models.TextField()
+    start_time = models.DateField()
+    end_time = models.DateField()
+
+    def __str__(self):
+        return self.title

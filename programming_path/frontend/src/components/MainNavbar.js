@@ -12,7 +12,7 @@ export default function MainNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#link">My Path</Nav.Link>
+            <Nav.Link href="/mypath">My Path</Nav.Link>
             <NavDropdown title="My To-Dos" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.0">Once</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Daily</NavDropdown.Item>
@@ -23,7 +23,7 @@ export default function MainNavbar() {
               <NavDropdown.Item href="/tasks">View All</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/projects">My Projects</Nav.Link>
-            <Nav.Link href="#link">My Network</Nav.Link>
+            {/* <Nav.Link href="#link">My Network</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

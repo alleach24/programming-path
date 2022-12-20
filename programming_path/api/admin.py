@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Task
-from .models import Project
+from .models import Task, Project, Plan
 
 # Register your models here.
 
@@ -12,5 +11,9 @@ class TaskAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title','description','technologies','collaborators','status')
 
+class PlanAdmin(admin.ModelAdmin):
+    list_display = ('title','description','start_time','end_time')
+
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Plan, PlanAdmin)

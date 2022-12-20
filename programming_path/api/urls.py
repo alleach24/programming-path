@@ -15,5 +15,10 @@ urlpatterns = [
     path('get-task-list/', views.GetTaskList.as_view()),
     path('save-task/', views.SaveTask.as_view()),
     path('delete-task/<int:id>', views.deleteTask, name='deleteTask'),
+
+    path('get-plan-list/', views.GetPlanList.as_view()),
+    path('get-plan/', views.GetPlan.as_view()),
+    path('save-plan/', views.SavePlan.as_view()),
+    path('delete-plan/<int:id>', views.deletePlan, name='deletePlan'),
     
 ]

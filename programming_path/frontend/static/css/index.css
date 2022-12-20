@@ -64,3 +64,27 @@ a { /* WelcomePage.js */
 a:hover { /* WelcomePage.js */
     color: turquoise;
 }
+
+
+
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+/* .timeline-container {
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+    background: purple;
+}
+.timeline-text-box {
+    padding: 20px 30px;
+    margin: 20px 30px;
+    background: pink;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+    color: red;
+} */

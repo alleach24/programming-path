@@ -9,6 +9,9 @@ import ProjectEdit from "./ProjectEdit"
 import TasksPage from "./TasksPage"
 import TaskEdit from "./TaskEdit"
 import Task from "./Task"
+import PathPage from "./PathPage"
+import PlanEdit from "./PlanEdit"
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -40,6 +43,10 @@ export default class App extends Component {
           <Route path="/tasks" element = {<TasksPage />} />
           <Route path="/task/:taskID" element={<Task />} />
           <Route path="/task/edit/:taskID" element={<TaskEdit />} />
+
+          <Route path="/mypath" element= {<PathPage />} />
+          {/* <Route path="/plan/:planID" element={<Plan />} /> */}
+          <Route path="/plan/edit/:planID" element={<PlanEdit />} />
           
         </Routes>
       </Router>

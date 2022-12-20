@@ -16,5 +16,10 @@ urlpatterns = [
     path('task/<int:taskID>', views.index),
     path('task/edit/<int:taskID>', views.index),
     path('task/edit/new', views.index),
+
+    path('mypath/', views.index),
+    path('plan/<int:taskID>', views.index),
+    path('plan/edit/<int:taskID>', views.index),
+    path('plan/edit/new', views.index),
     
 ]
