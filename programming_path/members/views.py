@@ -4,6 +4,10 @@ from django.contrib import messages
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework import generics, status
+from django.contrib.auth.forms import UserCreationForm
+from rest_framework.decorators import api_view
+from .models import Member
+from django.http import JsonResponse
 
 def login_user(request):
     print('hit this method')
@@ -23,8 +27,7 @@ def login_user(request):
             return redirect('/home')
         else:
             print("did not find the user")
-            # messages.success(request, ('Login failed, try again'))
-            return redirect('/login')
+            return redirect('/login') #find a way to send a 'failed login' message or something
 
     else:
         print("post request not received")
@@ -36,3 +39,22 @@ def logout_user(request):
     logout(request)
     return redirect('/')
 
+@api_view(['POST'])
+def register_user(request):
+    print('hit the register user method')
+    try: 
+        print('trying')
+        Member.objects.create_user(username=request.data['username'], password=request.data['password'], email=request.data['email'])
+        JsonResponse({'success': True})
+        print('success?')
+        return redirect('/login') #add way to send success message
+    except Exception as e:
+        print('failed')
+        print(str(e))
+        JsonResponse({'success': False})
+    return redirect('/register') #add way to send error message
+
+
+@api_view(['GET'])
+def who_am_i(request):
+    pass

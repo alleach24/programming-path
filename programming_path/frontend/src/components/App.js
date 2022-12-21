@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import WelcomePage from "./WelcomePage";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import LoginNewUserPage from "./LoginNewUserPage"
 import ProjectsPage from "./ProjectsPage"
 import Project from "./Project"
 import ProjectEdit from "./ProjectEdit"
@@ -35,6 +36,7 @@ export default class App extends Component {
           <Route exact path="/" element={<WelcomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path='/register' element={<LoginNewUserPage />} />
 
           <Route exact path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:projectID" element={<Project />} />
