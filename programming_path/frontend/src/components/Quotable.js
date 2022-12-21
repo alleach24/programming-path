@@ -9,7 +9,7 @@ export default function Quotable() {
       const { statusCode, statusMessage, ...data } = await response.json();
       if (!response.ok) throw new Error(`${statusCode} ${statusMessage}`);
       setData(data);
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.error(error);
       console.log(data)
