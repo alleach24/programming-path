@@ -3,17 +3,6 @@ from django.contrib.auth.models import (AbstractUser)
 
 # Create your models here.
 
-# class AppUser(AbstractUser):
-#     email = models.EmailField(
-#         verbose_name='email address',
-#         max_length=255,
-#         unique=True,
-#     )
-#     # is_active = models.BooleanField(default=True)
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = []
-#     # pass
-
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
@@ -21,6 +10,7 @@ class Project(models.Model):
     collaborators = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey('members.Member', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -44,6 +34,7 @@ class Task(models.Model):
     frequency = models.CharField(max_length = 1, choices=FREQUENCY_CHOICES, default=ONCE)
     description = models.TextField(default="description") # change to link to resource later
     completed = models.BooleanField(default=False)
+    user = models.ForeignKey('members.Member', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -54,6 +45,7 @@ class Plan(models.Model):
     description = models.TextField()
     start_time = models.DateField()
     end_time = models.DateField()
+    user = models.ForeignKey('members.Member', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
