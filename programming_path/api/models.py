@@ -27,6 +27,7 @@ class Project(models.Model):
 
 
 class Task(models.Model):
+    # just make 'Once', 'Daily', etc as choices
     ONCE = "O"
     DAILY = "D"
     WEEKLY = "W"

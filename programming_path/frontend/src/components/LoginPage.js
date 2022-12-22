@@ -11,7 +11,6 @@ export default function LoginPage() {
     return (
         <div>
             <p>This is the login page</p>
-            <a href="/home">Home non-logged in</a>
 
             <form action="/members/login_user/" method="post">
 

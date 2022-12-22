@@ -77,6 +77,7 @@ export default function TaskEdit() {
                             <label for="formTitle">Title:  </label>
                             <input type="text" id="formTitle" name="formTitle" defaultValue={title} />
                             <br />
+                            {/* change listing out these radio buttons to a loop */}
                             <label for="formFrequency">Frequency:  </label>
                             <input type="radio" id="formFrequency1" name="formFrequency" value="O" />
                             <label for="formFrequency1">One-time</label>

@@ -25,6 +25,7 @@ export default function PathPage() {
 
             <div class="timeline">
 
+            {/* do sorting and mapping in one function outside the html */}
             {planList.sort((a,b) => (a.start_time > b.start_time ? 1 : ((b.start_time > a.start_time) ? -1 : 0))).map((data) => {
                 return (
                     <div class="container timeline-container">

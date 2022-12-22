@@ -53,7 +53,7 @@ export default function TasksTable(props) {
             <th>Completion Status</th>
           </tr>
         </thead>
-        <tbody>     
+        <tbody>      {/* pull tasklist.length and tasklist[0].id out to another function like 'tasklistexists' or seomthing */}
           {taskList.length > 0 && taskList[0].id && taskList.map((data) => {
               return(
                 <tr>

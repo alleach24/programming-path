@@ -29,6 +29,10 @@ export default function ProjectsTable() {
     navigate(path)
   }
 
+
+  // extract map function
+  // displaytableentire(data) { return all the html }
+
   return (
     <div>
       <Table striped bordered hover>
@@ -46,6 +50,7 @@ export default function ProjectsTable() {
         <tbody>     
           {projectList.map((data) => {
               return(
+                // displaytableentries(data)
                 <tr>
                   <td>{data.id}</td>
                   <td>{data.title}</td>

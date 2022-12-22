@@ -28,7 +28,6 @@ export default function LoginPage() {
     return (
         <div>
             <p>This is the register user page</p>
-            <a href="/home">Home non-logged in</a>
 
             <form action="/members/register_user/" method="post">
                 <input type="hidden" name="csrfmiddlewaretoken" value={Cookies.get('csrftoken')} />
