@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import PlanEdit from "./PlanEdit"
 
 
 export default function Plan(props) {
@@ -9,6 +10,7 @@ export default function Plan(props) {
     const [description, setDescription] = useState(props.description);
     const [startTime, setStartTime] = useState(props.startTime);
     const [endTime, setEndTime] = useState(props.endTime);
+    const [editPlan, setEditPlan] = useState(false);
 
     let navigate = useNavigate()
     const DeletePlan = (id) => {
@@ -28,7 +30,14 @@ export default function Plan(props) {
             <h3>{title}</h3>
             <small>{startTime} - {endTime}</small>
             <p>{description}</p>
-            <button onClick={()=>EditPlan(id)}>Edit</button>
+            {/* <button onClick={()=>EditPlan(id)}>Edit</button> */}
+            <button onClick={()=>setEditPlan(true)}>Edit plan</button>
+            {editPlan && (
+                <div id="pop-up">
+                    <PlanEdit newPlan={id}/>
+                    <button onClick={()=>setEditPlan(false)}>Cancel</button>
+                </div>
+            )}
             <button onClick={()=>DeletePlan(id)}>Delete</button>
         </div>
     )

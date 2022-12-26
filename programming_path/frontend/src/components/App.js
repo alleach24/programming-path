@@ -50,7 +50,7 @@ export default class App extends Component {
 
             <Route path="/mypath" element= {<PathPage />} />
             {/* <Route path="/plan/:planID" element={<Plan />} /> */}
-            <Route path="/plan/edit/:planID" element={<PlanEdit />} />
+            {/* <Route path="/plan/edit/:planID" element={<PlanEdit />} /> */}
 
             <Route path="/resources" element={<Resources />} />
             

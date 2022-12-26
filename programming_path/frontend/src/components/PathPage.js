@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import MainNavbar from "./MainNavbar";
 import Plan from "./Plan"
+import PlanEdit from "./PlanEdit"
 
 
 export default function PathPage() {
     const [planList, setPlanList] = useState([]);
+    const [addNewPlan, setAddNewPlan] = useState(false);
 
     useEffect(() => {
         getData()
@@ -21,7 +23,14 @@ export default function PathPage() {
         <div>
             <MainNavbar />
             <h1>My Path</h1>
-            <a href="/plan/edit/new"><button>Add new plan</button></a>
+            <button onClick={()=>setAddNewPlan(true)}>Add new plan</button>
+            {addNewPlan && (
+                <div id="pop-up">
+                    <PlanEdit newPlan="new"/>
+                    <button onClick={()=>setAddNewPlan(false)}>Cancel</button>
+                </div>
+            )}
+
 
             <div class="timeline">
 

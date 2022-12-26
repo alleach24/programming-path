@@ -3,17 +3,17 @@ import { useParams, useNavigate } from "react-router-dom"
 import MainNavbar from "./MainNavbar";
 import Cookies from 'js-cookie';
 
-export default function PlanEdit() {
+export default function PlanEdit(props) {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [startTime, setStartTime] = useState("");
     const [endTime, setEndTime] = useState("");
 
-    const {planID} = useParams();
+    const planID = props.newPlan;
     console.log(planID)
 
-    if (planID !== "new") {
+    if (planID != 'new') {
         fetch('/api/get-plan' + '?id=' + planID)
             .then((response) => response.json())
             .then((data) => {
@@ -45,13 +45,12 @@ export default function PlanEdit() {
             }),
         };
         console.log(requestOptions);
-        fetch("/api/save-plan/", requestOptions).then((response) => response.json()).then((data) => navigate('/mypath'))
+        fetch("/api/save-plan/", requestOptions).then((response) => response.json()).then(() => navigate(0))
     }
 
     
     return (
         <div>
-            <MainNavbar />
             {planID==="new" && <h3>Add your plan</h3>}
             {planID!=="new" && <h3>Edit your plan</h3>}
             <div className="container">
@@ -72,9 +71,6 @@ export default function PlanEdit() {
                             <br />
                         </form>
                         <button onClick={SavePlan}>Save Plan</button>
-                        <a href="/mypath">
-                            <input type="button" value="Cancel" />
-                        </a>
                     </div>
                 </div>
             </div>
