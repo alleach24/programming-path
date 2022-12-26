@@ -4,16 +4,26 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+{/* <Nav.Link href="/members/logout_user">Log Out</Nav.Link> */}
 export default function MainNavbar() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="/home">Path of Programming</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/mypath">My Path</Nav.Link>
-            <NavDropdown title="My To-Dos" id="basic-nav-dropdown">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/home">Path of Programming</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/mypath">My Path</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects">My Projects</a>
+          </li>
+          <NavDropdown title="My To-Dos" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.0">Once</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Daily</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Weekly</NavDropdown.Item>
@@ -22,13 +32,15 @@ export default function MainNavbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/tasks">View All</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/projects">My Projects</Nav.Link>
-            {/* <Nav.Link href="#link">My Network</Nav.Link> */}
-            <Nav.Link href="/resources">Resources</Nav.Link>
-          </Nav>
-          <Nav.Link href="/members/logout_user">Log Out</Nav.Link>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          <li class="nav-item">
+            <a class="nav-link" href="/resources">Resources</a>
+          </li>
+        </ul>
+        <span class="navbar-text mr-lg">
+          <a class="nav-link" href="/members/logout_user">Log Out</a>
+        </span>
+      </div>
+    </nav>
+
   );
 }
