@@ -12,6 +12,7 @@ import TaskEdit from "./TaskEdit"
 import Task from "./Task"
 import PathPage from "./PathPage"
 import PlanEdit from "./PlanEdit"
+import Resources from "./Resources"
 
 import {
   BrowserRouter as Router,
@@ -36,9 +37,6 @@ export default class App extends Component {
           <Route exact path="/" element={<WelcomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path='/register' element={<LoginNewUserPage />} />
-          {/* <Route exact path="/visitor" element={<WelcomePage />} />
-          <Route path="/visitor/login" element={<LoginPage />} />
-          <Route path='/visitor/register' element={<LoginNewUserPage />} /> */}
 
           <Route path="/home" element={<HomePage />} />
 
@@ -53,6 +51,8 @@ export default class App extends Component {
           <Route path="/mypath" element= {<PathPage />} />
           {/* <Route path="/plan/:planID" element={<Plan />} /> */}
           <Route path="/plan/edit/:planID" element={<PlanEdit />} />
+
+          <Route path="/resources" element={<Resources />} />
           
         </Routes>
       </Router>

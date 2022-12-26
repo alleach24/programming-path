@@ -24,6 +24,7 @@ export default function MainNavbar() {
             </NavDropdown>
             <Nav.Link href="/projects">My Projects</Nav.Link>
             {/* <Nav.Link href="#link">My Network</Nav.Link> */}
+            <Nav.Link href="/resources">Resources</Nav.Link>
           </Nav>
           <Nav.Link href="/members/logout_user">Log Out</Nav.Link>
         </Navbar.Collapse>
