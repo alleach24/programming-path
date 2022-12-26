@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Quotable from "./Quotable";
+import LoginPage from "./LoginPage"
+import LoginNewUserPage from "./LoginNewUserPage"
 
 
 export default class WelcomePage extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      login: false,
+      register: false,
+      buttonsReveal: false,
+    }
   }
 
   render() {
     return (
       <div id="welcome">
-        {/* <h1>This is the welcome page</h1> */}
 
         <div id="quote">
           <Quotable />
@@ -25,8 +25,17 @@ export default class WelcomePage extends Component {
 
         <div id="challenge">
           <h2>Learning is a lifelong journey. Do you accept?</h2>
-          <Link to="/login" class="links">I accept this challenge</Link>
+          {!this.state.buttonsReveal && <button onClick={()=>this.setState({buttonsReveal: true})}>I accept this challenge</button>}
         </div>
+          
+        {this.state.buttonsReveal && 
+          <div id="pop-up">
+            <button onClick={()=>this.setState({login: true, register: false})}>Login</button>
+            <button onClick={()=>this.setState({login: false, register: true})}>Register</button>
+            {this.state.login && <LoginPage />}
+            {this.state.register && <LoginNewUserPage />}
+          </div>  
+        }
       </div>
     );
   }

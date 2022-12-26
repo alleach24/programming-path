@@ -4,30 +4,10 @@ import Cookies from 'js-cookie';
 export default function LoginPage() {
 
     console.log('hit register page')
-    // let form = fetch('/members/register_user').then((response) => response.json).then((data) => console.log(data))
-
-    function signup () {
-        const csrftoken = Cookies.get('csrftoken');
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken,
-            },
-            mode: 'same-origin',
-            body: JSON.stringify({
-                username: document.getElementById('username').value,
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value
-            }),
-        };
-        console.log(requestOptions);
-        fetch("/members/register_user/", requestOptions).then((response) => response.json()).then((data) => navigate('/mypath'))
-    }
 
     return (
         <div>
-            <p>This is the register user page</p>
+            <h3>Register</h3>
 
             <form action="/members/register_user/" method="post">
                 <input type="hidden" name="csrfmiddlewaretoken" value={Cookies.get('csrftoken')} />

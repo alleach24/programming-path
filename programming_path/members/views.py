@@ -46,13 +46,13 @@ def register_user(request):
         print('trying')
         Member.objects.create_user(username=request.data['username'], password=request.data['password'], email=request.data['email'])
         JsonResponse({'success': True})
-        print('success?')
-        return redirect('/login') #add way to send success message
+        print('success?')#add way to send success message
+        return login_user(request)
     except Exception as e:
         print('failed')
         print(str(e))
         JsonResponse({'success': False})
-    return redirect('/register') #add way to send error message
+    return redirect('/') #add way to send error message
 
 
 @api_view(['GET'])

@@ -31,7 +31,7 @@ export default function Quotable() {
             <p>{data.content}</p>
             {data.author && (
               <footer className="blockquote-footer">
-                <cite title="Source Title">- {data.author}</cite>
+                <cite title="Source Title">{data.author}</cite>
               </footer>
             )}
           </blockquote>

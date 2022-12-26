@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'frontend.apps.FrontendConfig',
-    # 'users', #delete this
-    'members',
+    'members.apps.MembersConfig',
 ]
 
 MIDDLEWARE = [
