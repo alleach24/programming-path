@@ -26,19 +26,23 @@ export default function Plan(props) {
     }
 
     return (
-        <div class="text-box timeline-text-box">
-            <h3>{title}</h3>
-            <small>{startTime} - {endTime}</small>
-            <p>{description}</p>
-            {/* <button onClick={()=>EditPlan(id)}>Edit</button> */}
-            <button onClick={()=>setEditPlan(true)}>Edit plan</button>
-            {editPlan && (
-                <div id="pop-up">
-                    <PlanEdit newPlan={id}/>
-                    <button onClick={()=>setEditPlan(false)}>Cancel</button>
-                </div>
-            )}
-            <button onClick={()=>DeletePlan(id)}>Delete</button>
+        <div class="timeline-container">
+            <h2>
+                {title}
+            </h2>
+            <div class="plan-info">
+                <small>{startTime} - {endTime}</small>
+                <p>{description}</p>
+                {/* <button onClick={()=>EditPlan(id)}>Edit</button> */}
+                <button onClick={()=>setEditPlan(true)}>Edit plan</button>
+                {editPlan && (
+                    <div id="pop-up">
+                        <PlanEdit newPlan={id}/>
+                        <button onClick={()=>setEditPlan(false)}>Cancel</button>
+                    </div>
+                )}
+                <button onClick={()=>DeletePlan(id)}>Delete</button>
+            </div>
         </div>
     )
 }

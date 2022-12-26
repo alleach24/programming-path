@@ -32,20 +32,17 @@ export default function PathPage() {
             )}
 
 
-            <div class="timeline">
-
-            {/* do sorting and mapping in one function outside the html */}
-            {planList.sort((a,b) => (a.start_time > b.start_time ? 1 : ((b.start_time > a.start_time) ? -1 : 0))).map((data) => {
-                return (
-                    <div class="container timeline-container">
+            <div id="timeline">
+                {/* do sorting and mapping in one function outside the html */}
+                {planList.sort((a,b) => (a.start_time > b.start_time ? 1 : ((b.start_time > a.start_time) ? -1 : 0))).map((data) => {
+                    return (
+                        <div>
                         <Plan id={data.id} title={data.title} description={data.description} startTime={data.start_time} endTime={data.end_time} />
-                    </div>
-                )
-            })}
-
+                        <div class="vertical"></div>
+                        </div>
+                    )
+                })}
             </div>
-
-
         </div>
     )
 }
