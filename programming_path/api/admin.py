@@ -6,13 +6,13 @@ from .models import Task, Project, Plan
 # admin.site.register(AppUser)
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('title','frequency','description','completed')
+    list_display = ('id', 'title','frequency','description','completed')
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title','description','technologies','collaborators','status')
+    list_display = ('id', 'title','description','technologies','collaborators','status')
 
 class PlanAdmin(admin.ModelAdmin):
-    list_display = ('title','description','start_time','end_time')
+    list_display = ('id', 'title','description','start_time','end_time')
 
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Project, ProjectAdmin)

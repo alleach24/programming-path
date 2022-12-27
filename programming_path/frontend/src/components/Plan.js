@@ -6,6 +6,7 @@ import PlanEdit from "./PlanEdit"
 export default function Plan(props) {
     
     const [id] = useState(props.id)
+    console.log(id)
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
     const [startTime, setStartTime] = useState(props.startTime);
