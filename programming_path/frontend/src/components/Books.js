@@ -27,7 +27,7 @@ export default function Books() {
         <div>
             <form onSubmit={handleSubmit}>
               <input type="text" id="bookQuery" onChange={handleChange}/>
-              <input type="submit" value="Search" />
+              <button class="special-button" type="submit" value="Search">Search</button>
             </form>
             {revealResults && <BookSearch search={searchQuery} />}
         </div>

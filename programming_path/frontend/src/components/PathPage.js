@@ -22,7 +22,7 @@ export default function PathPage() {
     return (
         <div>
             <MainNavbar />
-            <h1>My Path</h1>
+            <h1><span class="animate-character">My Path</span></h1>
             <button class="special-button" onClick={()=>setAddNewPlan(true)}>Add new plan</button>
             {addNewPlan && (
                 <div id="pop-up">

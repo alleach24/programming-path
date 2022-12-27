@@ -46,7 +46,7 @@ export default function BookSearch({search}) {
 
     return (
         <div>
-            <Table striped bordered hover>
+            <Table striped bordered hover class="table">
                 <thead>
                 <tr>
                     <th>Title</th>
@@ -57,10 +57,10 @@ export default function BookSearch({search}) {
                 <tbody>     
                     {booksList.map((data) => {
                         return(
-                            <tr>
-                                <td>{data[0]}</td>
-                                <td>{data[1]}</td>
-                                <td>{data[2]}</td>
+                            <tr class="table-row">
+                                <td class="table-column">{data[0]}</td>
+                                <td class="table-column">{data[1]}</td>
+                                <td class="table-column">{data[2]}</td>
                             </tr>
                         )
                     })}

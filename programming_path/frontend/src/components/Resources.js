@@ -22,9 +22,9 @@ export default function Resources() {
             {!revealBooks && (
                 <button class="special-button search" onClick={booksButton}>Search for books</button>
             )}
-            {revealBooks && (
+            {/* {revealBooks && (
                 <button class="non-special-button" onClick={booksButton}>Hide books search</button>
-            )}
+            )} */}
             {revealBooks && (
                 <Books />
             )}

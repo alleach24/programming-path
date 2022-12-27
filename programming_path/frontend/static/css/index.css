@@ -238,6 +238,16 @@ margin-right:30px;
   font-weight: bold !important;
 }
 
+input[type=text] {
+  margin: 30px;
+  color: #dddddd;
+  font-size: 20px;
+  color: black;
+}
+/* input[type=submit] {
+  font-size: 30px;
+} */
+
 
 
 
