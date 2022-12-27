@@ -40,6 +40,7 @@ export default function TaskEdit(props) {
                 completed: getSelected('formCompleted'),
             }),
         };
+        console.log(requestOptions)
         fetch("/api/save-task/", requestOptions).then((response) => response.json()).then((data) => navigate(0))
     }
 

@@ -18,7 +18,7 @@ export default class WelcomePage extends Component {
     return (
       <div id="welcome">
         <br></br>
-        <h1><span class="center animate-character">Path of programming</span></h1>
+        <h1><span class="center animate-character">Path of Programming</span></h1>
         <br></br>
         <div id="quote">
           <Quotable />

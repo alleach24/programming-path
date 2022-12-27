@@ -16,7 +16,7 @@ export default class TasksPage extends Component {
         return (
             <div>
                 <MainNavbar />
-                <h1>My Tasks</h1>
+                <h1><span class="animate-character">My Tasks</span></h1>
                 <div>
                     <button class="special-button" onClick={() => {this.setState({addNewTask:true})}}>Add new task</button>
                 </div>
