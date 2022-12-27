@@ -1,10 +1,12 @@
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";  
+import { useParams, useNavigate } from "react-router-dom"; 
+import TaskEdit from "./TaskEdit" 
 
 
 export default function TasksTable(props) {
   const [taskList, setTaskList] = useState([]);
+  const [editTask, setEditTask] = useState(false);
 //   console.log(props.frequency)
 
   useEffect(() => {
@@ -29,9 +31,9 @@ export default function TasksTable(props) {
   let navigate = useNavigate()
   const EditTask = (id) => {
     console.log('pressed edit')
-    let path = "/task/edit/" + id;
-    console.log(path)
-    navigate(path)
+    // let path = "/task/edit/" + id;
+    // console.log(path)
+    // navigate(path)
   }
 
   const completedStatus = (completed) => {
@@ -62,7 +64,13 @@ export default function TasksTable(props) {
                   <td>{data.description}</td>
                   <td>{completedStatus(data.completed)}</td>
                   <td>
-                    <button onClick={()=>EditTask(data.id)}>Edit</button>
+                    <button onClick={() => {setEditTask(true)}}>Edit</button>
+                    {editTask && (
+                        <div id="pop-up">
+                            <TaskEdit taskID={data.id}/>
+                            <button onClick={()=>setEditTask(false)}>Cancel</button>
+                        </div>
+                    )}
                     <button onClick={()=>DeleteTask(data.id)}>Delete</button>
                   </td>
                 </tr>

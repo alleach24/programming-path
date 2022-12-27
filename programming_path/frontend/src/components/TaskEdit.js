@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-import MainNavbar from "./MainNavbar";
 import Cookies from 'js-cookie';
 
-export default function TaskEdit() {
+export default function TaskEdit(props) {
 
     const [title, setTitle] = useState("");
     const [frequency, setFrequency] = useState("");
     const [description, setDescription] = useState("");
     const [completed, setCompleted] = useState("");    
 
-    const {taskID} = useParams();
+    const taskID = props.taskID;
     console.log(taskID)
 
     if (taskID !== "new") {
@@ -24,7 +23,7 @@ export default function TaskEdit() {
                 console.log(data)
         });
     }        
-
+    let navigate = useNavigate();
     const SaveTask = async () => {
         console.log("saving task")
         const csrftoken = Cookies.get('csrftoken');
@@ -47,7 +46,7 @@ export default function TaskEdit() {
             }),
         };
         console.log(requestOptions);
-        fetch("/api/save-task/", requestOptions).then((response) => response.json()).then((data) => routeChange(data.id))
+        fetch("/api/save-task/", requestOptions).then((response) => response.json()).then((data) => navigate(0))
     }
 
     const getSelected= (name) => {
@@ -59,15 +58,8 @@ export default function TaskEdit() {
         }
     }
 
-    let navigate = useNavigate();
-    const routeChange = (id) => {
-        let path = '/task/' + id
-        navigate(path)
-    }
-
     return (
         <div>
-            <MainNavbar />
             {taskID==="new" && <h3>Add your task idea!</h3>}
             {taskID!=="new" && <h3>Edit your task idea!</h3>}
             <div className="container">
@@ -101,9 +93,6 @@ export default function TaskEdit() {
                             <br />
                         </form>
                         <button onClick={SaveTask}>Save task</button>
-                        <a href="/tasks">
-                            <input type="button" value="Cancel" />
-                        </a>
                     </div>
                 </div>
             </div>

@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";  
 import MainNavbar from "./MainNavbar";
 
-export default function Task() {
+export default function Task(props) {
 
     const [title, setTitle] = useState("title");
     const [frequency, setFrequency] = useState("frequency");
     const [description, setDescription] = useState("description");
     const [completed, setCompleted] = useState("completed");
 
-    const {taskID} = useParams();
+    // const {taskID} = useParams();
+    const taskID = props.taskID;
 
     fetch('/api/get-task' + '?id=' + taskID)
         .then((response) => response.json())

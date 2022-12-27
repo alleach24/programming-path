@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import MainNavbar from "./MainNavbar";
 import TasksTable from "./TasksTable";
+import TaskEdit from "./TaskEdit"
 
 
 export default class TasksPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            addNewTask: false,
+          }
     }   
     
 
@@ -15,10 +19,17 @@ export default class TasksPage extends Component {
                 <MainNavbar />
                 <h1>My Tasks</h1>
                 <div>
-                    <form action="/task/edit/new">
+                    {/* <form action="/task/edit/new">
                     <input type="submit" value="Add new task" />
-                    </form>
+                    </form> */}
+                    <button onClick={() => {this.setState({addNewTask:true})}}>Add new task</button>
                 </div>
+                {this.state.addNewTask && (
+                    <div id="pop-up">
+                        <TaskEdit taskID="new"/>
+                        <button onClick={() => {this.setState({addNewTask:false})}}>Cancel</button>
+                    </div>
+                )}
                 <h3>Once only Tasks</h3>
                 <TasksTable frequency="O" />
                 <h3>Daily Tasks</h3>
