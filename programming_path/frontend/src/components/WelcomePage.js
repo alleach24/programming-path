@@ -18,11 +18,13 @@ export default class WelcomePage extends Component {
   render() {
     return (
       <div id="welcome">
-
+        <br></br>
+        <h1><span class="center animate-character">Path of programming</span></h1>
+        <br></br>
         <div id="quote">
           <Quotable />
         </div>
-
+        <br></br>
         <div id="challenge">
           <h2>Learning is a lifelong journey. Do you accept?</h2>
           {!this.state.buttonsReveal && <button class="special-button" onClick={()=>this.setState({buttonsReveal: true})}>I accept this challenge</button>}
