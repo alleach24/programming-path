@@ -92,7 +92,7 @@ export default function TaskEdit(props) {
                             <label for="formCompleted">Completed</label>
                             <br />
                         </form>
-                        <button onClick={SaveTask}>Save task</button>
+                        <button class="special-button" onClick={SaveTask}>Save task</button>
                     </div>
                 </div>
             </div>

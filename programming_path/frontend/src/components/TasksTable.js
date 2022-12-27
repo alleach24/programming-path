@@ -28,14 +28,6 @@ export default function TasksTable(props) {
     getData()
   }
 
-  let navigate = useNavigate()
-  const EditTask = (id) => {
-    console.log('pressed edit')
-    // let path = "/task/edit/" + id;
-    // console.log(path)
-    // navigate(path)
-  }
-
   const completedStatus = (completed) => {
     if (completed) {
         return "Completed"
@@ -46,38 +38,40 @@ export default function TasksTable(props) {
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table striped bordered hover class="table">
         <thead>
           <tr>
-            <th>#</th>
+            {/* <th>#</th> */}
             <th>Title</th>
             <th>Description</th>
             <th>Completion Status</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>      {/* pull tasklist.length and tasklist[0].id out to another function like 'tasklistexists' or seomthing */}
           {taskList.length > 0 && taskList[0].id && taskList.map((data) => {
               return(
-                <tr>
-                  <td>{data.id}</td>
-                  <td>{data.title}</td>
-                  <td>{data.description}</td>
-                  <td>{completedStatus(data.completed)}</td>
-                  <td>
-                    <button onClick={() => {setEditTask(true)}}>Edit</button>
+                <tr class="table-row">
+                  {/* <td>{data.id}</td> */}
+                  <td class="table-column">{data.title}</td>
+                  <td class="table-column">{data.description}</td>
+                  <td class="table-column">{completedStatus(data.completed)}</td>
+                  <td class="table-column">
+                    <button class="non-special-button" onClick={() => {setEditTask(true)}}>Edit</button>
                     {editTask && (
                         <div id="pop-up">
                             <TaskEdit taskID={data.id}/>
                             <button onClick={()=>setEditTask(false)}>Cancel</button>
                         </div>
                     )}
-                    <button onClick={()=>DeleteTask(data.id)}>Delete</button>
+                    <button class="non-special-button" onClick={()=>DeleteTask(data.id)}>Delete</button>
                   </td>
                 </tr>
               )
           })}
         </tbody>
       </Table>
+      <br></br>
     </div>
   );
 }
