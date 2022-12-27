@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";  
-import MainNavbar from "./MainNavbar";
-// import axios from 'axios'
 import Table from 'react-bootstrap/Table';
 
 export default function BookSearch({search}) {
@@ -14,19 +11,14 @@ export default function BookSearch({search}) {
     }, [])
 
     async function searchBooks() {
-      console.log('hit the searchBooks function')
       try {
         let url = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`
-        console.log(url)
         const response = await fetch(url);
         const { statusCode, statusMessage, ...data } = await response.json();
         if (!response.ok) throw new Error(`${statusCode} ${statusMessage}`);
         displayBooks(data);
-        // console.log(data)
       } catch (error) {
         console.error(error);
-        // console.log(data)
-        // setData({ content: "Opps... Something went wrong" });
       }
     }
 
@@ -39,9 +31,7 @@ export default function BookSearch({search}) {
                 break
             }
         }
-        console.log(list)
         setBooksList(list)
-        console.log(booksList)
     }
 
     return (
@@ -66,7 +56,6 @@ export default function BookSearch({search}) {
                     })}
                 </tbody>
             </Table>
-
         </div>
     )
 }

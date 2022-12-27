@@ -20,7 +20,6 @@ export default function Project() {
             setTechnologies(data.technologies);
             setCollaborators(data.collaborators);
             setStatus(data.status);
-            console.log(data)
     });
 
     const navigate = useNavigate();

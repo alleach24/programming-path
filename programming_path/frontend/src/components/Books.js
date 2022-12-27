@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import BookSearch from "./BookSearch"
-import { useParams, useNavigate } from "react-router-dom";  
-import MainNavbar from "./MainNavbar";
-// import axios from 'axios'
-import Table from 'react-bootstrap/Table';
 
 export default function Books() {
     const [revealResults, setRevealResults] = useState(false)
@@ -12,8 +8,6 @@ export default function Books() {
 
     const handleChange = (event) => {
       setSearchQuery(event.target.value)
-      // console.log(event.target.value)
-      // console.log('hit this function')
     }
 
     function handleSubmit(event) {

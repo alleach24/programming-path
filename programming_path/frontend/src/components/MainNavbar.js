@@ -4,11 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-{/* <Nav.Link href="/members/logout_user">Log Out</Nav.Link> */}
+
 export default function MainNavbar() {
   return (
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/home">Path of Programming</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +39,5 @@ export default function MainNavbar() {
         </span>
       </div>
     </nav>
-
   );
 }

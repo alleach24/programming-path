@@ -9,20 +9,16 @@ export default function Quotable() {
       const { statusCode, statusMessage, ...data } = await response.json();
       if (!response.ok) throw new Error(`${statusCode} ${statusMessage}`);
       setData(data);
-      // console.log(data)
     } catch (error) {
       console.error(error);
-      console.log(data)
       setData({ content: "Opps... Something went wrong" });
     }
   }
 
-  // Run `updateQuote` once when component mounts
   React.useEffect(() => {
     updateQuote();
   }, []);
 
-  // Do not render until the first quote is loaded
   if (!data) return null;
 
   return (

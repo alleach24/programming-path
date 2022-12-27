@@ -11,7 +11,6 @@ export default function PlanEdit(props) {
     const [endTime, setEndTime] = useState("");
 
     const planID = props.newPlan;
-    console.log(planID)
 
     if (planID != 'new') {
         fetch('/api/get-plan' + '?id=' + planID)
@@ -21,7 +20,6 @@ export default function PlanEdit(props) {
                 setDescription(data.description);
                 setStartTime(data.start_time);
                 setEndTime(data.end_time);
-                console.log(data)
         });
     }    
     
@@ -44,7 +42,6 @@ export default function PlanEdit(props) {
                 end_time: document.getElementById('formEnd').value,
             }),
         };
-        console.log(requestOptions);
         fetch("/api/save-plan/", requestOptions).then((response) => response.json()).then(() => navigate(0))
     }
 

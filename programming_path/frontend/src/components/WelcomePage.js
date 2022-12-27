@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Quotable from "./Quotable";
 import LoginPage from "./LoginPage"
 import LoginNewUserPage from "./LoginNewUserPage"

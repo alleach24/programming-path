@@ -15,9 +15,7 @@ export default function PathPage() {
     const getData = async () => {
         const response = await fetch('/api/get-plan-list')
         setPlanList(await response.json());
-        console.log(response.body)
     }
-
 
     return (
         <div>
@@ -30,7 +28,6 @@ export default function PathPage() {
                     <button class="non-special-button" onClick={()=>setAddNewPlan(false)}>Cancel</button>
                 </div>
             )}
-
 
             <div id="timeline">
                 {/* do sorting and mapping in one function outside the html */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie';
 
 export default function TaskEdit(props) {
@@ -10,7 +10,6 @@ export default function TaskEdit(props) {
     const [completed, setCompleted] = useState("");    
 
     const taskID = props.taskID;
-    console.log(taskID)
 
     if (taskID !== "new") {
         fetch('/api/get-task' + '?id=' + taskID)
@@ -19,17 +18,13 @@ export default function TaskEdit(props) {
                 setTitle(data.title);
                 setFrequency(data.frequency);
                 setDescription(data.description);
-                setCompleted(data.completed);                
-                console.log(data)
+                setCompleted(data.completed);
         });
     }        
     let navigate = useNavigate();
     const SaveTask = async () => {
-        console.log("saving task")
         const csrftoken = Cookies.get('csrftoken');
-        console.log(csrftoken)
         let idToSave = (taskID !== "new" ? taskID : null)
-        console.log(idToSave)
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -45,7 +40,6 @@ export default function TaskEdit(props) {
                 completed: getSelected('formCompleted'),
             }),
         };
-        console.log(requestOptions);
         fetch("/api/save-task/", requestOptions).then((response) => response.json()).then((data) => navigate(0))
     }
 

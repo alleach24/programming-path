@@ -33,23 +33,10 @@ export default class App extends Component {
           <Routes>
 
             <Route exact path="/" element={<WelcomePage />} />
-            {/* <Route path="/login" element={<LoginPage />} />
-            <Route path='/register' element={<LoginNewUserPage />} /> */}
-
             <Route path="/home" element={<HomePage />} />
-
             <Route exact path="/projects" element={<ProjectsPage />} />
-            {/* <Route path="/project/:projectID" element={<Project />} />
-            <Route path="/project/edit/:projectID" element={<ProjectEdit />} /> */}
-
             <Route path="/tasks" element = {<TasksPage />} />
-            {/* <Route path="/task/:taskID" element={<Task />} />
-            <Route path="/task/edit/:taskID" element={<TaskEdit />} /> */}
-
             <Route path="/mypath" element= {<PathPage />} />
-            {/* <Route path="/plan/:planID" element={<Plan />} /> */}
-            {/* <Route path="/plan/edit/:planID" element={<PlanEdit />} /> */}
-
             <Route path="/resources" element={<Resources />} />
             
           </Routes>

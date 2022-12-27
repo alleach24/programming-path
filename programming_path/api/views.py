@@ -10,13 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-# class ProjectView(generics.ListAPIView):
-#     queryset = Project.objects.all()
-#     serializer_class = ProjectSerializer
-
-# ==============================================================================
-# Projects
-# ==============================================================================
 class GetProject(APIView):
     serializer_class = ProjectSerializer
     lookup_url_kwarg = 'id'

@@ -1,13 +1,11 @@
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; 
 import TaskEdit from "./TaskEdit" 
 
 
 export default function TasksTable(props) {
   const [taskList, setTaskList] = useState([]);
   const [editTask, setEditTask] = useState(false);
-//   console.log(props.frequency)
 
   useEffect(() => {
     getData()
@@ -41,7 +39,6 @@ export default function TasksTable(props) {
       <Table striped bordered hover class="table">
         <thead>
           <tr>
-            {/* <th>#</th> */}
             <th>Title</th>
             <th>Description</th>
             <th>Completion Status</th>
@@ -52,7 +49,6 @@ export default function TasksTable(props) {
           {taskList.length > 0 && taskList[0].id && taskList.map((data) => {
               return(
                 <tr class="table-row">
-                  {/* <td>{data.id}</td> */}
                   <td class="table-column">{data.title}</td>
                   <td class="table-column">{data.description}</td>
                   <td class="table-column">{completedStatus(data.completed)}</td>

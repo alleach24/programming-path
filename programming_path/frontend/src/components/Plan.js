@@ -6,24 +6,17 @@ import PlanEdit from "./PlanEdit"
 export default function Plan(props) {
     
     const [id] = useState(props.id)
-    console.log(id)
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
     const [startTime, setStartTime] = useState(props.startTime);
     const [endTime, setEndTime] = useState(props.endTime);
     const [editPlan, setEditPlan] = useState(false);
 
-    let navigate = useNavigate()
+
     const DeletePlan = (id) => {
         let path = "/api/delete-plan/" + id
         fetch(path, [])
         window.location.reload();
-    }
-    const EditPlan = (id) => {
-        console.log('pressed edit')
-        let path = "/plan/edit/" + id;
-        console.log(path)
-        navigate(path)
     }
 
     return (

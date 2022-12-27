@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";  
 import MainNavbar from "./MainNavbar";
 
 export default function Task(props) {
@@ -9,7 +9,6 @@ export default function Task(props) {
     const [description, setDescription] = useState("description");
     const [completed, setCompleted] = useState("completed");
 
-    // const {taskID} = useParams();
     const taskID = props.taskID;
 
     fetch('/api/get-task' + '?id=' + taskID)
@@ -18,8 +17,7 @@ export default function Task(props) {
             setTitle(data.title);
             setFrequency(data.frequency);
             setDescription(data.description);
-            setCompleted(data.completed);            
-            console.log(data)
+            setCompleted(data.completed);  
     });
 
     const navigate = useNavigate();

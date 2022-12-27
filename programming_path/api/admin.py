@@ -3,8 +3,6 @@ from .models import Task, Project, Plan
 
 # Register your models here.
 
-# admin.site.register(AppUser)
-
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('id', 'title','frequency','description','completed')
 

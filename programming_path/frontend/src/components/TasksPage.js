@@ -12,16 +12,12 @@ export default class TasksPage extends Component {
           }
     }   
     
-
     render() {
         return (
             <div>
                 <MainNavbar />
                 <h1>My Tasks</h1>
                 <div>
-                    {/* <form action="/task/edit/new">
-                    <input type="submit" value="Add new task" />
-                    </form> */}
                     <button class="special-button" onClick={() => {this.setState({addNewTask:true})}}>Add new task</button>
                 </div>
                 {this.state.addNewTask && (

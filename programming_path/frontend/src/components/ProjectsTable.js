@@ -1,7 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from "react";
 import ProjectEdit from './ProjectEdit';
-import { useParams, useNavigate } from "react-router-dom";  
 
 
 export default function ProjectsTable() {
@@ -23,17 +22,6 @@ export default function ProjectsTable() {
     getData()
   }
 
-  let navigate = useNavigate()
-  const EditIdea = (id) => {
-    console.log('pressed edit')
-    let path = "/project/edit/" + id;
-    console.log(path)
-    navigate(path)
-  }
-
-
-  // extract map function
-  // displaytableentire(data) { return all the html }
 
   return (
     <div>
@@ -52,9 +40,7 @@ export default function ProjectsTable() {
         <tbody>     
           {projectList.map((data) => {
               return(
-                // displaytableentries(data)
                 <tr class="table-row">
-                  {/* <td>{data.id}</td> */}
                   <td class="table-column">{data.title}</td>
                   <td class="table-column">{data.description}</td>
                   <td class="table-column">{data.status}</td>

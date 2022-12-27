@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie';
 
 export default function ProjectEdit(props) {
@@ -10,10 +10,7 @@ export default function ProjectEdit(props) {
     const [collaborators, setCollaborators] = useState("");
     const [status, setStatus] = useState("");
 
-    // const {projectID} = useParams();
-    // console.log(projectID)
     const projectID = props.projectID;
-    console.log(projectID)
 
     if (projectID !== "new") {
         fetch('/api/get-project' + '?id=' + projectID)
@@ -24,13 +21,11 @@ export default function ProjectEdit(props) {
                 setTechnologies(data.technologies);
                 setCollaborators(data.collaborators);
                 setStatus(data.status);
-                console.log(data)
         });
     }    
     
     let navigate = useNavigate();
     const SaveProject = async () => {
-
         const csrftoken = Cookies.get('csrftoken');
         let idToSave = (projectID !== "new" ? projectID : null)
         const requestOptions = {
@@ -50,16 +45,10 @@ export default function ProjectEdit(props) {
             }),
         };
         console.log(requestOptions);
-        // fetch("/api/save-project/", requestOptions).then(() => routeChange(projectID));
         fetch("/api/save-project/", requestOptions).then((response) => response.json()).then((data) => navigate(0))
     }
 
     
-    // const routeChange = (id) => {
-    //     let path = '/project/' + id
-    //     navigate(path)
-    // }
-
     return (
         <div>
             {projectID==="new" && <h3>Add your project idea!</h3>}
