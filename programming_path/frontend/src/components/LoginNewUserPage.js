@@ -9,7 +9,7 @@ export default function LoginPage() {
         <div>
             <h3>Register</h3>
 
-            <form action="/members/register_user/" method="post">
+            <form action="/members/register_user/" method="post" class="register-form">
                 <input type="hidden" name="csrfmiddlewaretoken" value={Cookies.get('csrftoken')} />
 
                 <div class="mb-3">
@@ -26,7 +26,7 @@ export default function LoginPage() {
                 </div>
 
 
-                <button type="submit" class="btn btn-primary" name="login-submit" value="submit">Submit</button>
+                <button type="submit" class="special-button" name="login-submit" value="submit">Submit</button>
             </form>
 
         </div>

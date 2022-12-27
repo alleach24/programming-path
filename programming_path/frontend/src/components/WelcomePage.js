@@ -30,8 +30,8 @@ export default class WelcomePage extends Component {
           
         {this.state.buttonsReveal && 
           <div id="pop-up">
-            <button class="special-button" onClick={()=>this.setState({login: true, register: false})}>Login</button>
-            <button class="special-button" onClick={()=>this.setState({login: false, register: true})}>Register</button>
+            <button class="non-special-button" onClick={()=>this.setState({login: true, register: false})}>Login</button>
+            <button class="non-special-button" onClick={()=>this.setState({login: false, register: true})}>Register</button>
             {this.state.login && <LoginPage />}
             {this.state.register && <LoginNewUserPage />}
           </div>  

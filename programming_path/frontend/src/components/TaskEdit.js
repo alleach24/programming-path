@@ -60,8 +60,8 @@ export default function TaskEdit(props) {
 
     return (
         <div>
-            {taskID==="new" && <h3>Add your task idea!</h3>}
-            {taskID!=="new" && <h3>Edit your task idea!</h3>}
+            {taskID==="new" && <h2>Add your task idea!</h2>}
+            {taskID!=="new" && <h2>Edit your task idea!</h2>}
             <div className="container">
                 <div className="form-group">
                     <div className="form-control">

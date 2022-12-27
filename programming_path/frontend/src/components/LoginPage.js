@@ -12,7 +12,7 @@ export default function LoginPage() {
         <div>
             <h3>Login</h3>
 
-            <form action="/members/login_user/" method="post">
+            <form action="/members/login_user/" method="post" class="login-form">
 
                 <input type="hidden" name="csrfmiddlewaretoken" value={Cookies.get('csrftoken')} />
 
