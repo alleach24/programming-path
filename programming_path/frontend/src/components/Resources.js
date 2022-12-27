@@ -17,13 +17,13 @@ export default function Resources() {
     return (
         <div>
             <MainNavbar />
-            <h1>Resources</h1>
-            <h2>Books</h2>
+            <h1><span class="animate-character">Resources</span></h1>
+
             {!revealBooks && (
-                <button onClick={booksButton}>Search for books</button>
+                <button class="special-button search" onClick={booksButton}>Search for books</button>
             )}
             {revealBooks && (
-                <button onClick={booksButton}>Hide books search</button>
+                <button class="non-special-button" onClick={booksButton}>Hide books search</button>
             )}
             {revealBooks && (
                 <Books />

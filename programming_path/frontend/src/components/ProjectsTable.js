@@ -1,10 +1,12 @@
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from "react";
+import ProjectEdit from './ProjectEdit';
 import { useParams, useNavigate } from "react-router-dom";  
 
 
 export default function ProjectsTable() {
   const [projectList, setProjectList] = useState([]);
+  const [editProject, setEditProject] = useState(false);
 
   useEffect(() => {
     getData()
@@ -35,10 +37,10 @@ export default function ProjectsTable() {
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table striped bordered hover class="table">
         <thead>
           <tr>
-            <th>#</th>
+            {/* <th>#</th> */}
             <th>Title</th>
             <th>Description</th>
             <th>Status</th>
@@ -51,27 +53,28 @@ export default function ProjectsTable() {
           {projectList.map((data) => {
               return(
                 // displaytableentries(data)
-                <tr>
-                  <td>{data.id}</td>
-                  <td>{data.title}</td>
-                  <td>{data.description}</td>
-                  <td>{data.status}</td>
-                  <td>{data.technologies}</td>
-                  <td>{data.collaborators}</td>
-                  <td>
-                    <button onClick={()=>EditIdea(data.id)}>Edit</button>
-                    <button onClick={()=>DeleteIdea(data.id)}>Delete</button>
+                <tr class="table-row">
+                  {/* <td>{data.id}</td> */}
+                  <td class="table-column">{data.title}</td>
+                  <td class="table-column">{data.description}</td>
+                  <td class="table-column">{data.status}</td>
+                  <td class="table-column">{data.technologies}</td>
+                  <td class="table-column">{data.collaborators}</td>
+                  <td class="table-column">
+                  <button class="non-special-button" onClick={() => {setEditProject(true)}}>Edit</button>
+                    {editProject && (
+                        <div id="pop-up">
+                            <ProjectEdit projectID={data.id}/>
+                            <button onClick={()=>setEditProject(false)}>Cancel</button>
+                        </div>
+                    )}
+                    <button class="non-special-button" onClick={()=>DeleteIdea(data.id)}>Delete</button>
                   </td>
                 </tr>
               )
           })}
         </tbody>
       </Table>
-      <div>
-        <form action="/project/edit/new">
-          <input type="submit" value="Add new project idea" />
-        </form>
-      </div>
     </div>
   );
 }

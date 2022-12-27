@@ -23,11 +23,11 @@ export default function PathPage() {
         <div>
             <MainNavbar />
             <h1>My Path</h1>
-            <button onClick={()=>setAddNewPlan(true)}>Add new plan</button>
+            <button class="special-button" onClick={()=>setAddNewPlan(true)}>Add new plan</button>
             {addNewPlan && (
                 <div id="pop-up">
                     <PlanEdit newPlan="new"/>
-                    <button onClick={()=>setAddNewPlan(false)}>Cancel</button>
+                    <button class="non-special-button" onClick={()=>setAddNewPlan(false)}>Cancel</button>
                 </div>
             )}
 

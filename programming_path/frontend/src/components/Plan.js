@@ -34,14 +34,14 @@ export default function Plan(props) {
                 <small>{startTime} - {endTime}</small>
                 <p>{description}</p>
                 {/* <button onClick={()=>EditPlan(id)}>Edit</button> */}
-                <button onClick={()=>setEditPlan(true)}>Edit plan</button>
+                <button class="non-special-button" onClick={()=>setEditPlan(true)}>Edit plan</button>
                 {editPlan && (
                     <div id="pop-up">
                         <PlanEdit newPlan={id}/>
                         <button onClick={()=>setEditPlan(false)}>Cancel</button>
                     </div>
                 )}
-                <button onClick={()=>DeletePlan(id)}>Delete</button>
+                <button class="non-special-button" onClick={()=>DeletePlan(id)}>Delete</button>
             </div>
         </div>
     )

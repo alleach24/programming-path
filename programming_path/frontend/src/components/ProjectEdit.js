@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-import MainNavbar from "./MainNavbar";
 import Cookies from 'js-cookie';
 
-export default function ProjectEdit() {
+export default function ProjectEdit(props) {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -11,7 +10,9 @@ export default function ProjectEdit() {
     const [collaborators, setCollaborators] = useState("");
     const [status, setStatus] = useState("");
 
-    const {projectID} = useParams();
+    // const {projectID} = useParams();
+    // console.log(projectID)
+    const projectID = props.projectID;
     console.log(projectID)
 
     if (projectID !== "new") {
@@ -27,7 +28,7 @@ export default function ProjectEdit() {
         });
     }    
     
-
+    let navigate = useNavigate();
     const SaveProject = async () => {
 
         const csrftoken = Cookies.get('csrftoken');
@@ -50,18 +51,17 @@ export default function ProjectEdit() {
         };
         console.log(requestOptions);
         // fetch("/api/save-project/", requestOptions).then(() => routeChange(projectID));
-        fetch("/api/save-project/", requestOptions).then((response) => response.json()).then((data) => routeChange(data.id))
+        fetch("/api/save-project/", requestOptions).then((response) => response.json()).then((data) => navigate(0))
     }
 
-    let navigate = useNavigate();
-    const routeChange = (id) => {
-        let path = '/project/' + id
-        navigate(path)
-    }
+    
+    // const routeChange = (id) => {
+    //     let path = '/project/' + id
+    //     navigate(path)
+    // }
 
     return (
         <div>
-            <MainNavbar />
             {projectID==="new" && <h3>Add your project idea!</h3>}
             {projectID!=="new" && <h3>Edit your project idea!</h3>}
             <div className="container">
@@ -84,10 +84,7 @@ export default function ProjectEdit() {
                             <input type="text" id="formCollaborators" name="formCollaborators" defaultValue={collaborators}/>
                             <br />
                         </form>
-                        <button onClick={SaveProject}>Save Project</button>
-                        <a href="/projects">
-                            <input type="button" value="Cancel" />
-                        </a>
+                        <button class="special-button" onClick={SaveProject}>Save Project</button>
                     </div>
                 </div>
             </div>

@@ -13,15 +13,15 @@ urlpatterns = [
     path('home/', views.index),
 
     path('projects/', views.index),
-    path('project/<int:projectID>', views.index),
-    path('project/edit/<int:projectID>', views.index),
-    path('project/edit/new', views.index),
+    # path('project/<int:projectID>', views.index),
+    # path('project/edit/<int:projectID>', views.index),
+    # path('project/edit/new', views.index),
 
 
     path('tasks/', views.index),
-    path('task/<int:taskID>', views.index),
-    path('task/edit/<int:taskID>', views.index),
-    path('task/edit/new', views.index),
+    # path('task/<int:taskID>', views.index),
+    # path('task/edit/<int:taskID>', views.index),
+    # path('task/edit/new', views.index),
 
     path('mypath/', views.index),
     # path('plan/<int:taskID>', views.index),

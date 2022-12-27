@@ -70,7 +70,7 @@ export default function PlanEdit(props) {
                             <input type="text" id="formEnd" name="formEnd" defaultValue={endTime}/>
                             <br />
                         </form>
-                        <button onClick={SavePlan}>Save Plan</button>
+                        <button class="special-button" onClick={SavePlan}>Save Plan</button>
                     </div>
                 </div>
             </div>

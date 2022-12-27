@@ -27,7 +27,7 @@ def login_user(request):
             return redirect('/home')
         else:
             print("did not find the user")
-            return redirect('/login') #find a way to send a 'failed login' message or something
+            return redirect('/') #find a way to send a 'failed login' message or something
 
     else:
         print("post request not received")

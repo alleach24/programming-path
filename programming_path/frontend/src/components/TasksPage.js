@@ -27,7 +27,7 @@ export default class TasksPage extends Component {
                 {this.state.addNewTask && (
                     <div id="pop-up">
                         <TaskEdit taskID="new"/>
-                        <button onClick={() => {this.setState({addNewTask:false})}}>Cancel</button>
+                        <button class="non-special-button" onClick={() => {this.setState({addNewTask:false})}}>Cancel</button>
                     </div>
                 )}
                 <h3>Once only Tasks</h3>

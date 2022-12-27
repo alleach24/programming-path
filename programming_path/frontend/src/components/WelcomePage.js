@@ -25,13 +25,13 @@ export default class WelcomePage extends Component {
 
         <div id="challenge">
           <h2>Learning is a lifelong journey. Do you accept?</h2>
-          {!this.state.buttonsReveal && <button onClick={()=>this.setState({buttonsReveal: true})}>I accept this challenge</button>}
+          {!this.state.buttonsReveal && <button class="special-button" onClick={()=>this.setState({buttonsReveal: true})}>I accept this challenge</button>}
         </div>
           
         {this.state.buttonsReveal && 
           <div id="pop-up">
-            <button onClick={()=>this.setState({login: true, register: false})}>Login</button>
-            <button onClick={()=>this.setState({login: false, register: true})}>Register</button>
+            <button class="special-button" onClick={()=>this.setState({login: true, register: false})}>Login</button>
+            <button class="special-button" onClick={()=>this.setState({login: false, register: true})}>Register</button>
             {this.state.login && <LoginPage />}
             {this.state.register && <LoginNewUserPage />}
           </div>  
